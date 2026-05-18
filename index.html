@@ -1,0 +1,1408 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chris Dover — Builds</title>
+<meta name="description" content="25+ builds. Agentic systems, x402 trust infrastructure, and trading platforms. Founder, Pollinate Research.">
+<meta property="og:title" content="Chris Dover — Builds">
+<meta property="og:description" content="AI-first founder-engineer. Agentic workflows, x402 payments, trading infrastructure. 25+ builds.">
+<meta property="og:type" content="profile">
+<meta property="og:url" content="https://chrisdover.com">
+<meta name="theme-color" content="#f7f5ef">
+<meta name="theme-color" content="#0e0f0c" media="(prefers-color-scheme: dark)">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f7f5ef;
+    --bg-elev: #fffefa;
+    --bg-sunk: #efece2;
+    --ink: #16170f;
+    --ink-soft: #45463c;
+    --ink-mute: #8a8a7c;
+    --rule: #d9d6c8;
+    --rule-soft: #e6e3d6;
+    --accent: #b8540a;
+    --live: #1f9d55;
+    --serif: "Fraunces", "Iowan Old Style", Charter, Georgia, serif;
+    --sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+    --mono: "JetBrains Mono", ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #0e0f0c;
+      --bg-elev: #15161210;
+      --bg-sunk: #181915;
+      --ink: #ecebdf;
+      --ink-soft: #b6b6a6;
+      --ink-mute: #6a6a5d;
+      --rule: #2a2b25;
+      --rule-soft: #1f201b;
+      --accent: #e09142;
+      --live: #4ade80;
+    }
+    .build-card { background: #14150f; }
+    .repo-row:hover { background: #16170f; }
+    .now-line .dot { box-shadow: 0 0 0 3px rgba(74, 222, 128, 0.12); }
+  }
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+
+  body {
+    font-family: var(--sans);
+    color: var(--ink);
+    background: var(--bg);
+    line-height: 1.55;
+    font-size: 16.5px;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-feature-settings: "ss01", "cv11";
+  }
+
+  a {
+    color: var(--ink);
+    text-decoration: none;
+    border-bottom: 1px solid var(--rule);
+    transition: border-color 0.15s ease, color 0.15s ease;
+  }
+  a:hover { border-bottom-color: var(--ink); }
+
+  ::selection { background: var(--accent); color: #fff; }
+
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 32px; }
+  .mono { font-family: var(--mono); font-feature-settings: "ss01", "ss02"; }
+
+  /* ============== Status bar ============== */
+  .statusbar {
+    border-bottom: 1px solid var(--rule);
+    background: var(--bg-sunk);
+    font-family: var(--mono);
+    font-size: 12.5px;
+    color: var(--ink-soft);
+  }
+  .statusbar-inner {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 10px 32px;
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    flex-wrap: wrap;
+  }
+  .status-dot {
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    background: var(--live);
+    box-shadow: 0 0 0 3px rgba(31, 157, 85, 0.15);
+    flex-shrink: 0;
+    animation: pulse 2.4s ease-in-out infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.55; }
+  }
+  .status-text { color: var(--ink); }
+  .status-sep { color: var(--rule); margin: 0 -6px; }
+  .status-cta {
+    margin-left: auto;
+    color: var(--accent);
+    border-bottom: 1px solid transparent;
+  }
+  .status-cta:hover { border-bottom-color: var(--accent); }
+
+  /* ============== Top nav ============== */
+  header.top {
+    padding: 26px 0 0;
+  }
+  .top-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+  .brand {
+    font-family: var(--mono);
+    font-weight: 500;
+    font-size: 14px;
+    border: none;
+    letter-spacing: -0.01em;
+  }
+  .brand .caret { color: var(--accent); margin-right: 4px; }
+  .top nav {
+    display: flex;
+    gap: 24px;
+    font-family: var(--mono);
+    font-size: 13px;
+    color: var(--ink-soft);
+  }
+  .top nav a { border: none; color: var(--ink-soft); }
+  .top nav a:hover { color: var(--ink); }
+
+  /* ============== Hero ============== */
+  section.hero { padding: 84px 0 56px; max-width: 880px; }
+
+  .eyebrow {
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.04em;
+    color: var(--ink-mute);
+    margin-bottom: 28px;
+  }
+  .eyebrow .num { color: var(--accent); margin-right: 8px; }
+
+  h1 {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: clamp(40px, 6.4vw, 76px);
+    line-height: 1.02;
+    letter-spacing: -0.028em;
+    margin: 0 0 28px;
+  }
+  h1 em {
+    font-style: italic;
+    font-weight: 300;
+    color: var(--ink-soft);
+  }
+  .lede {
+    font-family: var(--serif);
+    font-weight: 300;
+    font-size: clamp(20px, 2.4vw, 26px);
+    line-height: 1.45;
+    color: var(--ink-soft);
+    max-width: 720px;
+    margin: 0 0 36px;
+  }
+  .lede code {
+    font-family: var(--mono);
+    font-size: 0.78em;
+    background: var(--bg-sunk);
+    padding: 2px 8px;
+    border-radius: 3px;
+    color: var(--ink);
+    border: 1px solid var(--rule-soft);
+    font-weight: 400;
+  }
+  .hero-cta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px 14px;
+    align-items: center;
+    margin-top: 8px;
+  }
+  .btn {
+    font-family: var(--mono);
+    font-size: 13px;
+    padding: 11px 18px;
+    border: 1px solid var(--ink);
+    border-radius: 3px;
+    background: var(--ink);
+    color: var(--bg);
+    transition: opacity 0.15s ease;
+  }
+  .btn:hover { opacity: 0.86; border-bottom-color: var(--ink); }
+  .btn.ghost {
+    background: transparent;
+    color: var(--ink);
+    border-color: var(--rule);
+  }
+  .btn.ghost:hover { border-color: var(--ink); }
+
+  /* ============== Section primitives ============== */
+  section { padding: 64px 0; }
+  .section-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    border-top: 1px solid var(--rule);
+    padding-top: 24px;
+    margin-bottom: 40px;
+  }
+  .section-head h2 {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: clamp(28px, 3.4vw, 38px);
+    letter-spacing: -0.02em;
+    margin: 0;
+  }
+  .section-head .meta {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--ink-mute);
+  }
+  .section-head .meta .num { color: var(--accent); }
+
+  /* ============== Now / activity log ============== */
+  .now {
+    background: var(--bg-elev);
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    padding: 24px 28px;
+    font-family: var(--mono);
+    font-size: 13.5px;
+    line-height: 1.9;
+    color: var(--ink-soft);
+  }
+  .now-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+    padding-bottom: 14px;
+    border-bottom: 1px dashed var(--rule);
+    color: var(--ink-mute);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+  .now-line { display: flex; gap: 14px; align-items: baseline; }
+  .now-line .date { color: var(--ink-mute); flex-shrink: 0; }
+  .now-line .what { color: var(--ink); }
+  .now-line a { color: var(--ink); border-bottom: 1px dotted var(--ink-mute); }
+  .now-line a:hover { border-bottom-color: var(--ink); }
+  .now-tag {
+    display: inline-block;
+    font-size: 10.5px;
+    padding: 1px 7px;
+    border-radius: 2px;
+    background: var(--bg-sunk);
+    color: var(--ink-soft);
+    border: 1px solid var(--rule-soft);
+    margin-right: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+  .now-tag.ship { color: var(--live); border-color: rgba(31,157,85,0.3); }
+  .now-tag.live { color: var(--accent); border-color: rgba(184,84,10,0.3); }
+
+  /* ============== About ============== */
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 56px;
+    align-items: start;
+  }
+  .about-grid .prose p {
+    font-family: var(--serif);
+    font-weight: 300;
+    font-size: 19px;
+    line-height: 1.55;
+    color: var(--ink-soft);
+    margin: 0 0 18px;
+  }
+  .about-grid .prose strong {
+    font-weight: 500;
+    color: var(--ink);
+  }
+  .about-grid .prose .pill {
+    display: inline;
+    font-family: var(--mono);
+    font-size: 13px;
+    background: var(--bg-sunk);
+    padding: 1px 7px;
+    border-radius: 3px;
+    border: 1px solid var(--rule-soft);
+    color: var(--ink);
+    font-weight: 400;
+  }
+
+  .stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  .stat {
+    padding: 22px 22px;
+    border-right: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+  }
+  .stat:nth-child(2n) { border-right: none; }
+  .stat:nth-last-child(-n+2) { border-bottom: none; }
+  .stat .num {
+    font-family: var(--serif);
+    font-size: 32px;
+    font-weight: 400;
+    line-height: 1;
+    letter-spacing: -0.025em;
+    display: block;
+    margin-bottom: 6px;
+  }
+  .stat .lbl {
+    font-family: var(--mono);
+    font-size: 11.5px;
+    color: var(--ink-mute);
+    line-height: 1.4;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+
+  /* ============== Featured builds ============== */
+  .featured {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+  .build-card {
+    background: var(--bg-elev);
+    border: 1px solid #c4c0b0;
+    border-radius: 4px;
+    padding: 28px 28px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    box-shadow: 0 1px 0 rgba(22, 23, 15, 0.04), 0 8px 24px -16px rgba(22, 23, 15, 0.18);
+    transition: transform 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+  }
+  .build-card:hover {
+    transform: translateY(-2px);
+    border-color: #8a8675;
+    box-shadow: 0 1px 0 rgba(22, 23, 15, 0.06), 0 14px 32px -16px rgba(22, 23, 15, 0.28);
+  }
+  @media (prefers-color-scheme: dark) {
+    .build-card {
+      border-color: #2f3128;
+      box-shadow: 0 1px 0 rgba(0, 0, 0, 0.3), 0 10px 30px -16px rgba(0, 0, 0, 0.6);
+    }
+    .build-card:hover { border-color: #4a4c40; }
+  }
+  .build-card.feature {
+    grid-column: span 2;
+    background: var(--ink);
+    border-color: var(--ink);
+    color: #f4f3e8;
+  }
+  .build-card.feature .b-meta,
+  .build-card.feature .b-blurb { color: #d6d4c5; }
+  .build-card.feature .b-stack span {
+    color: #e0ddcd;
+    background: rgba(255,255,255,0.06);
+    border-color: rgba(255,255,255,0.16);
+  }
+  .build-card.feature .b-tag {
+    background: rgba(255,255,255,0.08);
+    color: #e6e3d2;
+    border-color: rgba(255,255,255,0.18);
+  }
+  .build-card.feature h3 { color: #f8f6e8; }
+  .build-card.feature .b-links a {
+    color: #f4f3e8;
+    border-bottom-color: rgba(244,243,232,0.35);
+  }
+  .build-card.feature .b-links a:hover { border-bottom-color: #f4f3e8; }
+  .build-card.feature .live-pill {
+    background: rgba(74, 222, 128, 0.13);
+    color: #7ee69d;
+    border-color: rgba(74, 222, 128, 0.32);
+  }
+
+  .b-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: var(--mono);
+    font-size: 11.5px;
+    color: #5e5f54;
+    letter-spacing: 0.04em;
+  }
+  @media (prefers-color-scheme: dark) {
+    .b-meta { color: #9a9a8a; }
+  }
+  .b-tag {
+    font-family: var(--mono);
+    background: #e8e4d4;
+    color: #3a3b32;
+    padding: 3px 8px;
+    border-radius: 3px;
+    border: 1px solid #c8c4b2;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+  @media (prefers-color-scheme: dark) {
+    .b-tag {
+      background: #1f2018;
+      color: #c4c2b3;
+      border-color: #36372d;
+    }
+  }
+  .live-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--live);
+    background: rgba(31, 157, 85, 0.08);
+    padding: 2px 8px;
+    border-radius: 3px;
+    border: 1px solid rgba(31, 157, 85, 0.25);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+  .live-pill::before {
+    content: "";
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--live);
+  }
+  .build-card h3 {
+    font-family: var(--serif);
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 1.18;
+    letter-spacing: -0.015em;
+    margin: 0;
+  }
+  .build-card.feature h3 { font-size: 30px; font-weight: 400; }
+  .b-blurb {
+    color: #2f302a;
+    font-size: 15px;
+    line-height: 1.6;
+    margin: 0;
+    flex: 1;
+  }
+  @media (prefers-color-scheme: dark) {
+    .b-blurb { color: #d6d4c5; }
+  }
+  .b-stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    font-family: var(--mono);
+    font-size: 11.5px;
+  }
+  .b-stack span {
+    color: #46473d;
+    background: #f1ede0;
+    border: 1px solid #cfcbb9;
+    padding: 2px 8px;
+    border-radius: 2px;
+  }
+  @media (prefers-color-scheme: dark) {
+    .b-stack span {
+      color: #b8b6a7;
+      background: #1a1b15;
+      border-color: #313229;
+    }
+  }
+  .b-links {
+    display: flex;
+    gap: 18px;
+    font-family: var(--mono);
+    font-size: 12.5px;
+    margin-top: 4px;
+    flex-wrap: wrap;
+  }
+  .build-card .b-links a {
+    color: var(--ink);
+    border-bottom: 1px solid #a8a496;
+  }
+  .build-card .b-links a:hover {
+    border-bottom-color: var(--ink);
+    color: var(--accent);
+  }
+  @media (prefers-color-scheme: dark) {
+    .build-card:not(.feature) .b-links a {
+      color: var(--ink);
+      border-bottom-color: #4a4c40;
+    }
+  }
+
+  /* ============== All repos table ============== */
+  .repos-wrap {
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    overflow: hidden;
+    background: var(--bg-elev);
+  }
+  .repos-head {
+    display: grid;
+    grid-template-columns: 220px 1fr 110px 92px 70px;
+    gap: 20px;
+    padding: 12px 20px;
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--ink-mute);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    background: var(--bg-sunk);
+    border-bottom: 1px solid var(--rule);
+  }
+  .repo-row {
+    display: grid;
+    grid-template-columns: 220px 1fr 110px 92px 70px;
+    gap: 20px;
+    padding: 14px 20px;
+    border-bottom: 1px solid var(--rule-soft);
+    align-items: center;
+    transition: background 0.12s ease;
+  }
+  .repo-row:last-child { border-bottom: none; }
+  .repo-row:hover { background: var(--bg-sunk); }
+
+  .repo-name {
+    font-family: var(--mono);
+    font-size: 13.5px;
+    font-weight: 500;
+    color: var(--ink);
+    border: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .repo-name:hover { color: var(--accent); }
+  .repo-fork {
+    font-family: var(--mono);
+    font-size: 9.5px;
+    background: var(--bg-sunk);
+    color: var(--ink-mute);
+    padding: 1px 5px;
+    border-radius: 2px;
+    border: 1px solid var(--rule-soft);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-weight: 400;
+  }
+  .repo-desc {
+    font-size: 13.5px;
+    color: var(--ink-soft);
+    line-height: 1.45;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+  }
+  .repo-lang {
+    font-family: var(--mono);
+    font-size: 11.5px;
+    color: var(--ink-soft);
+    display: flex;
+    align-items: center;
+    gap: 7px;
+  }
+  .lang-dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--ink-mute);
+  }
+  .lang-dot.typescript { background: #3178c6; }
+  .lang-dot.javascript { background: #f1e05a; }
+  .lang-dot.python { background: #3572A5; }
+  .lang-dot.html { background: #e34c26; }
+  .lang-dot.r { background: #198CE7; }
+  .lang-dot.openedge-abl { background: #5ce600; }
+
+  .repo-date {
+    font-family: var(--mono);
+    font-size: 11.5px;
+    color: var(--ink-mute);
+  }
+  .repo-stars {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--ink-mute);
+    text-align: right;
+  }
+
+  /* ============== Career timeline ============== */
+  .roles { display: grid; }
+  .role {
+    display: grid;
+    grid-template-columns: 150px 1fr;
+    gap: 32px;
+    padding: 22px 0;
+    border-top: 1px solid var(--rule);
+  }
+  .role:last-child { border-bottom: 1px solid var(--rule); }
+  .role-year {
+    font-family: var(--mono);
+    font-size: 12.5px;
+    color: var(--ink-mute);
+    padding-top: 4px;
+  }
+  .role-body h4 {
+    font-family: var(--serif);
+    font-weight: 500;
+    font-size: 20px;
+    margin: 0 0 4px;
+    letter-spacing: -0.012em;
+  }
+  .role-body .role-org {
+    font-family: var(--mono);
+    font-size: 12.5px;
+    color: var(--ink-mute);
+    margin-bottom: 10px;
+  }
+  .role-body p {
+    margin: 0;
+    color: var(--ink-soft);
+    font-size: 15px;
+    line-height: 1.6;
+  }
+
+  .creds {
+    background: var(--bg-elev);
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    padding: 32px;
+    margin-top: 12px;
+  }
+  .creds h3 {
+    font-family: var(--mono);
+    font-weight: 500;
+    font-size: 12px;
+    margin: 0 0 16px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--ink-mute);
+  }
+  .creds-list {
+    font-size: 14.5px;
+    color: var(--ink-soft);
+    line-height: 1.8;
+  }
+  .creds-list .item::after {
+    content: "·";
+    color: var(--rule);
+    margin: 0 12px;
+  }
+  .creds-list .item:last-child::after { content: ""; }
+
+  /* ============== Co-founder section ============== */
+  section.cofounder {
+    padding: 88px 0 56px;
+    border-top: 1px solid var(--rule);
+    margin-top: 64px;
+  }
+  .cofounder-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 56px;
+    align-items: start;
+  }
+  .cofounder h2 {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: clamp(32px, 4.6vw, 52px);
+    letter-spacing: -0.022em;
+    margin: 0 0 20px;
+    line-height: 1.06;
+  }
+  .cofounder h2 em { font-style: italic; font-weight: 300; color: var(--ink-soft); }
+  .cofounder .lede {
+    font-size: 19px;
+    margin-bottom: 24px;
+  }
+  .cofounder ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-family: var(--mono);
+    font-size: 13.5px;
+    color: var(--ink-soft);
+  }
+  .cofounder ul li {
+    display: flex;
+    gap: 12px;
+    padding: 9px 0;
+    border-bottom: 1px dashed var(--rule);
+  }
+  .cofounder ul li:last-child { border-bottom: none; }
+  .cofounder ul li .marker { color: var(--accent); flex-shrink: 0; }
+  .cofounder .label {
+    font-family: var(--mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--ink-mute);
+    margin-bottom: 14px;
+  }
+
+  .contact-block {
+    background: var(--bg-elev);
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    padding: 28px;
+  }
+  .contact-block .row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--rule-soft);
+    font-family: var(--mono);
+    font-size: 13.5px;
+  }
+  .contact-block .row:last-child { border-bottom: none; }
+  .contact-block .row .key { color: var(--ink-mute); }
+  .contact-block .row a { border: none; color: var(--ink); }
+  .contact-block .row a:hover { color: var(--accent); }
+
+  /* ============== Footer ============== */
+  footer.site {
+    padding: 32px 0 48px;
+    border-top: 1px solid var(--rule);
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--ink-mute);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  footer.site a { color: var(--ink-mute); border: none; }
+  footer.site a:hover { color: var(--ink); }
+
+  /* ============== Responsive ============== */
+  @media (max-width: 880px) {
+    .wrap, .statusbar-inner { padding-left: 22px; padding-right: 22px; }
+    section.hero { padding: 56px 0 36px; }
+    section { padding: 48px 0; }
+    .about-grid { grid-template-columns: 1fr; gap: 32px; }
+    .featured { grid-template-columns: 1fr; }
+    .build-card.feature { grid-column: span 1; }
+    .build-card.feature h3 { font-size: 26px; }
+    .role { grid-template-columns: 1fr; gap: 4px; }
+    .role-year { padding-top: 0; }
+    .creds { padding: 24px; }
+    .cofounder-inner { grid-template-columns: 1fr; gap: 36px; }
+    .stats { grid-template-columns: 1fr 1fr; }
+
+    .repos-head { display: none; }
+    .repo-row {
+      grid-template-columns: 1fr;
+      gap: 6px;
+      padding: 16px 18px;
+    }
+    .repo-meta-row {
+      display: flex;
+      gap: 14px;
+      align-items: center;
+      font-family: var(--mono);
+      font-size: 11.5px;
+      color: var(--ink-mute);
+    }
+    .top nav { gap: 16px; font-size: 12px; }
+    .statusbar-inner { font-size: 11.5px; gap: 10px; }
+    .status-cta { margin-left: 0; }
+  }
+</style>
+</head>
+<body>
+
+<div class="statusbar">
+  <div class="statusbar-inner">
+    <span class="status-dot" aria-hidden="true"></span>
+    <span><span class="status-text">Currently building MAKO</span> — x402 trust layer for agent commerce on Base</span>
+    <span class="status-sep">|</span>
+    <span>Scottsdale, AZ</span>
+    <a class="status-cta" href="#cofounder">Open to co-founder conversations →</a>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <header class="top">
+    <div class="top-inner">
+      <a href="#" class="brand"><span class="caret">$</span>chrisdover</a>
+      <nav>
+        <a href="#now">now</a>
+        <a href="#builds">builds</a>
+        <a href="#repos">repos</a>
+        <a href="#career">career</a>
+        <a href="#cofounder">contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="eyebrow"><span class="num">00 /</span>HELLO</div>
+    <h1>I ship agentic systems <em>that move real money.</em></h1>
+    <p class="lede">
+      Founder-engineer building <code>x402</code> trust infrastructure, autonomous payment workflows, and trading platforms. Grew a solo-built fintech to <code>$250K+ ARR</code>. Now building MAKO — the missing primitive for agent commerce.
+    </p>
+    <div class="hero-cta">
+      <a class="btn" href="#builds">See the builds</a>
+      <a class="btn ghost" href="https://github.com/chrisdover" target="_blank" rel="noopener">github.com/chrisdover ↗</a>
+      <a class="btn ghost" href="#cofounder">For potential co-founders</a>
+    </div>
+  </section>
+
+  <section id="now">
+    <div class="section-head">
+      <h2>Now</h2>
+      <span class="meta"><span class="num">01 /</span> SHIPPING LOG</span>
+    </div>
+    <div class="now">
+      <div class="now-header"><span>~/chrisdover</span> <span>$ git log --recent</span></div>
+      <div class="now-line"><span class="date">2026-05-18</span><span class="what"><span class="now-tag ship">ship</span>integrated <a href="https://github.com/ChrisDover/gbrain" target="_blank" rel="noopener">gbrain</a> into MAKO's agent orchestration loop</span></div>
+      <div class="now-line"><span class="date">2026-05-14</span><span class="what"><span class="now-tag live">live</span>released <a href="https://github.com/ChrisDover/mako-mcp-server" target="_blank" rel="noopener">mako-mcp-server</a> — paid x402 endpoints as MCP tools</span></div>
+      <div class="now-line"><span class="date">2026-05-13</span><span class="what"><span class="now-tag live">live</span><a href="https://github.com/ChrisDover/mako-verifier" target="_blank" rel="noopener">mako-verifier</a> deployed to mako.pollinateresearch.com</span></div>
+      <div class="now-line"><span class="date">2026-05-07</span><span class="what"><span class="now-tag ship">ship</span><a href="https://github.com/ChrisDover/outlive-engine" target="_blank" rel="noopener">outlive-engine</a> v0.x — open-source longevity protocol platform</span></div>
+      <div class="now-line"><span class="date">2026-05-01</span><span class="what"><span class="now-tag ship">ship</span><a href="https://github.com/ChrisDover/visible-edge" target="_blank" rel="noopener">visible-edge</a> — CMMC compliance lead-gen microsite</span></div>
+      <div class="now-line"><span class="date">2026-04-23</span><span class="what"><span class="now-tag ship">ship</span><a href="https://github.com/ChrisDover/Silo" target="_blank" rel="noopener">Silo</a> — session-locked AI coding terminal. One project. No drift.</span></div>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="section-head">
+      <h2>About</h2>
+      <span class="meta"><span class="num">02 /</span> BIO</span>
+    </div>
+    <div class="about-grid">
+      <div class="prose">
+        <p>I'm an <strong>AI-first founder-engineer</strong>. I build agentic workflows where agents use tools, hit APIs, manage state, <span class="pill">transact on-chain</span>, evaluate their own output, and ship real work.</p>
+        <p>Solo-built <strong>Pollinate Trading</strong> to <span class="pill">$250K+ ARR</span> — product, frontend, backend, data, infra, backtesting, deployment. Now building <strong>MAKO</strong>: a verifier, pulse, pricing, and reputation layer for the x402 agent economy, callable as paid endpoints and MCP tools.</p>
+        <p>10+ years in crypto/web3/DeFi. Operated a crypto hedge fund through multiple cycles. Former <strong>500 Startups</strong> founder with exit. Before tech: 7 years in Iraq running State Dept and DoD high-threat protection, then multinational security programs across LATAM and the Middle East.</p>
+        <p>I move fast, ship to production, and write code that other engineers will want to maintain.</p>
+      </div>
+      <div class="stats">
+        <div class="stat"><span class="num">25+</span><span class="lbl">Public repos</span></div>
+        <div class="stat"><span class="num">$250K+</span><span class="lbl">ARR · solo-built</span></div>
+        <div class="stat"><span class="num">95%</span><span class="lbl">OSINT automation</span></div>
+        <div class="stat"><span class="num">10+ yrs</span><span class="lbl">Crypto · DeFi · trading</span></div>
+        <div class="stat"><span class="num">500 SU</span><span class="lbl">Alum · prior exit</span></div>
+        <div class="stat"><span class="num">5,000+</span><span class="lbl">Personnel directed, ME ops</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="builds">
+    <div class="section-head">
+      <h2>Featured builds</h2>
+      <span class="meta"><span class="num">03 /</span> WHAT I SHIP</span>
+    </div>
+
+    <div class="featured">
+
+      <article class="build-card feature">
+        <div class="b-meta">
+          <span>MAKO · 2026</span>
+          <span class="live-pill">live</span>
+        </div>
+        <h3>Trust layer for agent commerce on Base</h3>
+        <p class="b-blurb">
+          Verifier · Pulse · Pricing Index · Reputation Score — all callable as paid x402 endpoints. The missing primitive that lets autonomous agents pay each other and trust the result. Drop-in MCP server for Claude Desktop, Cline, and any MCP-native agent. Live at <span class="mono" style="font-size: 13.5px;">mako.pollinateresearch.com</span>.
+        </p>
+        <div class="b-stack">
+          <span>TypeScript</span><span>Base</span><span>x402</span><span>MCP</span><span>ERC-8004</span><span>USDC</span>
+        </div>
+        <div class="b-links">
+          <a href="https://github.com/ChrisDover/mako-verifier" target="_blank" rel="noopener">→ mako-verifier</a>
+          <a href="https://github.com/ChrisDover/mako-mcp-server" target="_blank" rel="noopener">→ mako-mcp-server</a>
+          <a href="https://pollinateresearch.com" target="_blank" rel="noopener">→ pollinateresearch.com</a>
+        </div>
+      </article>
+
+      <article class="build-card">
+        <div class="b-meta">
+          <span>2022 — present</span>
+          <span class="b-tag">Fintech · SaaS</span>
+        </div>
+        <h3>Pollinate Trading</h3>
+        <p class="b-blurb">
+          Solo-built fintech platform for systematic traders, grown to <strong>$250K+ ARR</strong>. Market-regime analysis, signal systems, risk dashboards, automated alerts, backtesting, and subscriber workflows — owned end-to-end.
+        </p>
+        <div class="b-stack">
+          <span>Python</span><span>Next.js</span><span>Postgres</span><span>AWS</span>
+        </div>
+        <div class="b-links">
+          <a href="https://pollinatetrading.com" target="_blank" rel="noopener">→ pollinatetrading.com</a>
+        </div>
+      </article>
+
+      <article class="build-card">
+        <div class="b-meta">
+          <span>2025 — present</span>
+          <span class="b-tag">Build feed</span>
+        </div>
+        <h3>AI Build Lab — /builds</h3>
+        <p class="b-blurb">
+          Community of systematic traders shipping AI-built strategies 2× per week. Public /builds feed: regime filters, Monte Carlo prompts, scanners, position sizers, model bake-offs. Real systems, walk-forward validated.
+        </p>
+        <div class="b-stack">
+          <span>Claude</span><span>Codex</span><span>Slack</span><span>Backtesting</span>
+        </div>
+        <div class="b-links">
+          <a href="https://pollinatetrading.com/builds" target="_blank" rel="noopener">→ pollinatetrading.com/builds</a>
+        </div>
+      </article>
+
+      <article class="build-card">
+        <div class="b-meta">
+          <span>2024 — present</span>
+          <span class="b-tag">Open source</span>
+        </div>
+        <h3>Outlive Engine</h3>
+        <p class="b-blurb">
+          Open-source longevity protocol platform. Your health data, your models, your hardware — a framework for personalized longevity protocols that doesn't ship your biology to a SaaS.
+        </p>
+        <div class="b-stack">
+          <span>Python</span><span>OSS</span><span>10★</span>
+        </div>
+        <div class="b-links">
+          <a href="https://github.com/ChrisDover/outlive-engine" target="_blank" rel="noopener">→ outlive-engine</a>
+        </div>
+      </article>
+
+      <article class="build-card">
+        <div class="b-meta">
+          <span>2026</span>
+          <span class="b-tag">Dev tool</span>
+        </div>
+        <h3>Silo</h3>
+        <p class="b-blurb">
+          Super-light, session-locked AI coding terminal. One project. One tool. No drift. Built because every "AI IDE" I tried kept losing the thread halfway through a feature.
+        </p>
+        <div class="b-stack">
+          <span>JavaScript</span><span>Terminal</span><span>Agentic</span>
+        </div>
+        <div class="b-links">
+          <a href="https://github.com/ChrisDover/Silo" target="_blank" rel="noopener">→ Silo on GitHub</a>
+        </div>
+      </article>
+
+      <article class="build-card">
+        <div class="b-meta">
+          <span>2026</span>
+          <span class="b-tag">Microsite</span>
+        </div>
+        <h3>Visible Edge</h3>
+        <p class="b-blurb">
+          Pitch microsite for a CMMC compliance lead-generation system targeting defense contractors. End-to-end build: copy, design, deploy.
+        </p>
+        <div class="b-stack">
+          <span>TypeScript</span><span>Next.js</span>
+        </div>
+        <div class="b-links">
+          <a href="https://github.com/ChrisDover/visible-edge" target="_blank" rel="noopener">→ visible-edge</a>
+        </div>
+      </article>
+
+      <article class="build-card">
+        <div class="b-meta">
+          <span>2026</span>
+          <span class="b-tag">Interactive</span>
+        </div>
+        <h3>608 Years</h3>
+        <p class="b-blurb">
+          Interactive family genealogy site — 608+ years, 83 ancestors, 6 countries. Built to learn the data-viz stack I'd been avoiding.
+        </p>
+        <div class="b-stack">
+          <span>TypeScript</span><span>D3</span><span>SSG</span>
+        </div>
+        <div class="b-links">
+          <a href="https://github.com/ChrisDover/geneology-site" target="_blank" rel="noopener">→ geneology-site</a>
+        </div>
+      </article>
+
+      <article class="build-card">
+        <div class="b-meta">
+          <span>2026</span>
+          <span class="b-tag">Live tracker</span>
+        </div>
+        <h3>Predictions 2026</h3>
+        <p class="b-blurb">
+          Live tracker for "10 Predictions for 2026 That Nobody Is Pricing In." Public scorecard, updated as the year plays out.
+        </p>
+        <div class="b-stack">
+          <span>HTML</span><span>Tracker</span>
+        </div>
+        <div class="b-links">
+          <a href="https://github.com/ChrisDover/predictions-2026" target="_blank" rel="noopener">→ predictions-2026</a>
+        </div>
+      </article>
+
+      <article class="build-card">
+        <div class="b-meta">
+          <span>Side project</span>
+          <span class="b-tag">OSINT</span>
+        </div>
+        <h3>Centinela Intel</h3>
+        <p class="b-blurb">
+          ~95% automation of OSINT intelligence gathering for LATAM-focused corporate security and EP teams. Turns noisy open-source signals into structured reports security teams can act on.
+        </p>
+        <div class="b-stack">
+          <span>AI agents</span><span>OSINT</span><span>LATAM</span>
+        </div>
+        <div class="b-links">
+          <span style="color: var(--ink-mute); font-size: 12px; font-family: var(--mono);">— private, case studies on request</span>
+        </div>
+      </article>
+
+      <article class="build-card">
+        <div class="b-meta">
+          <span>2013 — 14</span>
+          <span class="b-tag">Exit</span>
+        </div>
+        <h3>Geniusly · 500 Startups</h3>
+        <p class="b-blurb">
+          Predictive risk analytics startup for transportation. Selected for 500 Startups; exited via acquisition of the technology and team.
+        </p>
+        <div class="b-stack">
+          <span>Predictive analytics</span><span>500 SU '14</span>
+        </div>
+        <div class="b-links">
+          <span style="color: var(--ink-mute); font-size: 12px; font-family: var(--mono);">— acquired</span>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <section id="repos">
+    <div class="section-head">
+      <h2>All repositories</h2>
+      <span class="meta"><span class="num">04 /</span> 25 PUBLIC · github.com/chrisdover</span>
+    </div>
+
+    <div class="repos-wrap">
+      <div class="repos-head">
+        <span>repo</span>
+        <span>description</span>
+        <span>lang</span>
+        <span>updated</span>
+        <span style="text-align: right;">stars</span>
+      </div>
+
+      <!-- Originals first -->
+      <div class="repo-row">
+        <a class="repo-name" href="https://github.com/ChrisDover/mako-verifier" target="_blank" rel="noopener">mako-verifier</a>
+        <div class="repo-desc">Trust layer for agent commerce on Base. Verifier + Pulse + Pricing Index + Reputation Score, all callable as paid x402 endpoints.</div>
+        <div class="repo-lang"><span class="lang-dot typescript"></span>TypeScript</div>
+        <div class="repo-date">2026-05-13</div>
+        <div class="repo-stars">★ 0</div>
+      </div>
+
+      <div class="repo-row">
+        <a class="repo-name" href="https://github.com/ChrisDover/mako-mcp-server" target="_blank" rel="noopener">mako-mcp-server</a>
+        <div class="repo-desc">MAKO's paid x402 endpoints (route, pulse, pricing, reputation, verify) as installable MCP tools. Drop-in for Claude Desktop, Cline, and any MCP-native agent.</div>
+        <div class="repo-lang"><span class="lang-dot typescript"></span>TypeScript</div>
+        <div class="repo-date">2026-05-14</div>
+        <div class="repo-stars">★ 0</div>
+      </div>
+
+      <div class="repo-row">
+        <a class="repo-name" href="https://github.com/ChrisDover/outlive-engine" target="_blank" rel="noopener">outlive-engine</a>
+        <div class="repo-desc">Open-source longevity protocol platform. Your health data, your models, your hardware.</div>
+        <div class="repo-lang"><span class="lang-dot python"></span>Python</div>
+        <div class="repo-date">2026-05-07</div>
+        <div class="repo-stars">★ 10</div>
+      </div>
+
+      <div class="repo-row">
+        <a class="repo-name" href="https://github.com/ChrisDover/Silo" target="_blank" rel="noopener">Silo</a>
+        <div class="repo-desc">Super light session-locked AI coding terminal. One project. One tool. No drift.</div>
+        <div class="repo-lang"><span class="lang-dot javascript"></span>JavaScript</div>
+        <div class="repo-date">2026-04-23</div>
+        <div class="repo-stars">★ 0</div>
+      </div>
+
+      <div class="repo-row">
+        <a class="repo-name" href="https://github.com/ChrisDover/visible-edge" target="_blank" rel="noopener">visible-edge</a>
+        <div class="repo-desc">Visible Edge — pitch microsite for a CMMC compliance lead-generation system.</div>
+        <div class="repo-lang"><span class="lang-dot typescript"></span>TypeScript</div>
+        <div class="repo-date">2026-05-01</div>
+        <div class="repo-stars">★ 0</div>
+      </div>
+
+      <div class="repo-row">
+        <a class="repo-name" href="https://github.com/ChrisDover/geneology-site" target="_blank" rel="noopener">geneology-site</a>
+        <div class="repo-desc">Interactive family genealogy website — 608+ years, 83 ancestors, 6 countries.</div>
+        <div class="repo-lang"><span class="lang-dot typescript"></span>TypeScript</div>
+        <div class="repo-date">2026-03-20</div>
+        <div class="repo-stars">★ 0</div>
+      </div>
+
+      <div class="repo-row">
+        <a class="repo-name" href="https://github.com/ChrisDover/predictions-2026" target="_blank" rel="noopener">predictions-2026</a>
+        <div class="repo-desc">Live tracker for 10 Predictions for 2026 That Nobody Is Pricing In.</div>
+        <div class="repo-lang"><span class="lang-dot html"></span>HTML</div>
+        <div class="repo-date">2026-03-19</div>
+        <div class="repo-stars">★ 0</div>
+      </div>
+
+      <div class="repo-row">
+        <a class="repo-name" href="https://github.com/ChrisDover/pollinate-lab-mlcourse" target="_blank" rel="noopener">pollinate-lab-mlcourse</a>
+        <div class="repo-desc">Using machine learning to build a predictive stock trading model.</div>
+        <div class="repo-lang"><span class="lang-dot"></span>—</div>
+        <div class="repo-date">2024-05-29</div>
+        <div class="repo-stars">★ 0</div>
+      </div>
+
+      <div class="repo-row">
+        <a class="repo-name" href="https://github.com/ChrisDover/ChrisDover" target="_blank" rel="noopener">ChrisDover</a>
+        <div class="repo-desc">GitHub profile readme.</div>
+        <div class="repo-lang"><span class="lang-dot"></span>—</div>
+        <div class="repo-date">2026-05-07</div>
+        <div class="repo-stars">★ 0</div>
+      </div>
+
+      <div class="repo-row">
+        <a class="repo-name" href="https://github.com/ChrisDover/alien" target="_blank" rel="noopener">alien</a>
+        <div class="repo-desc">Early experiment from 2014.</div>
+        <div class="repo-lang"><span class="lang-dot"></span>—</div>
+        <div class="repo-date">2014-05-29</div>
+        <div class="repo-stars">★ 0</div>
+      </div>
+
+      <!-- Forks / curated -->
+      <div class="repo-row">
+        <a class="repo-name" href="https://github.com/ChrisDover/gbrain" target="_blank" rel="noopener">gbrain <span class="repo-fork">fork</span></a>
+        <div class="repo-desc">Garry's opinionated OpenClaw/Hermes Agent brain — patched and integrated with MAKO.</div>
+        <div class="repo-lang"><span class="lang-dot"></span>—</div>
+        <div class="repo-date">2026-05-18</div>
+        <div class="repo-stars">★ 0</div>
+      </div>
+
+      <div class="repo-row">
+        <a class="repo-name" href="https://github.com/ChrisDover/x402" target="_blank" rel="noopener">x402 <span class="repo-fork">fork</span></a>
+        <div class="repo-desc">A payments protocol for the internet. Built on HTTP. Tracking upstream for MAKO.</div>
+        <div class="repo-lang"><span class="lang-dot"></span>—</div>
+        <div class="repo-date">2026-05-07</div>
+        <div class="repo-stars">★ 0</div>
+      </div>
+
+      <div class="repo-row">
+        <a class="repo-name" href="https://github.com/ChrisDover/a2a-x402" target="_blank" rel="noopener">a2a-x402 <span class="repo-fork">fork</span></a>
+        <div class="repo-desc">A2A x402 Extension — brings crypto payments to the Agent-to-Agent protocol.</div>
+        <div class="repo-lang"><span class="lang-dot"></span>—</div>
+        <div class="repo-date">2026-05-07</div>
+        <div class="repo-stars">★ 0</div>
+      </div>
+
+      <div class="repo-row">
+        <a class="repo-name" href="https://github.com/ChrisDover/awesome-x402" target="_blank" rel="noopener">awesome-x402 <span class="repo-fork">fork</span></a>
+        <div class="repo-desc">Curated list of x402 resources — HTTP 402 protocol, SDKs, facilitators, MCP integration.</div>
+        <div class="repo-lang"><span class="lang-dot"></span>—</div>
+        <div class="repo-date">2026-05-07</div>
+        <div class="repo-stars">★ 0</div>
+      </div>
+
+      <div class="repo-row">
+        <a class="repo-name" href="https://github.com/ChrisDover/awesome-x402-1" target="_blank" rel="noopener">awesome-x402-1 <span class="repo-fork">fork</span></a>
+        <div class="repo-desc">Second curated x402 resource list.</div>
+        <div class="repo-lang"><span class="lang-dot"></span>—</div>
+        <div class="repo-date">2026-05-14</div>
+        <div class="repo-stars">★ 0</div>
+      </div>
+
+      <div class="repo-row">
+        <a class="repo-name" href="https://github.com/ChrisDover/trading-momentum-transformer" target="_blank" rel="noopener">trading-momentum-transformer <span class="repo-fork">fork</span></a>
+        <div class="repo-desc">Reference implementation for "Trading with the Momentum Transformer" (arXiv 2112.08534).</div>
+        <div class="repo-lang"><span class="lang-dot python"></span>Python</div>
+        <div class="repo-date">2026-05-07</div>
+        <div class="repo-stars">★ 3</div>
+      </div>
+
+      <div class="repo-row">
+        <a class="repo-name" href="https://github.com/ChrisDover/Deep-Trading" target="_blank" rel="noopener">Deep-Trading <span class="repo-fork">fork</span></a>
+        <div class="repo-desc">Algorithmic trading with deep learning experiments.</div>
+        <div class="repo-lang"><span class="lang-dot openedge-abl"></span>OpenEdge ABL</div>
+        <div class="repo-date">2026-05-07</div>
+        <div class="repo-stars">★ 1</div>
+      </div>
+
+      <div class="repo-row">
+        <a class="repo-name" href="https://github.com/ChrisDover/stockprediction" target="_blank" rel="noopener">stockprediction <span class="repo-fork">fork</span></a>
+        <div class="repo-desc">Stock prediction with TensorFlow — Medium-article companion code.</div>
+        <div class="repo-lang"><span class="lang-dot python"></span>Python</div>
+        <div class="repo-date">2026-05-07</div>
+        <div class="repo-stars">★ 1</div>
+      </div>
+
+      <div class="repo-row">
+        <a class="repo-name" href="https://github.com/ChrisDover/airllm" target="_blank" rel="noopener">airllm <span class="repo-fork">fork</span></a>
+        <div class="repo-desc">AirLLM — 70B inference on a single 4GB GPU.</div>
+        <div class="repo-lang"><span class="lang-dot"></span>—</div>
+        <div class="repo-date">2026-05-07</div>
+        <div class="repo-stars">★ 0</div>
+      </div>
+
+      <div class="repo-row">
+        <a class="repo-name" href="https://github.com/ChrisDover/quant-trading" target="_blank" rel="noopener">quant-trading <span class="repo-fork">fork</span></a>
+        <div class="repo-desc">Python quant strategies — VIX, pattern recognition, Monte Carlo, options straddle, pair trading, RSI, Bollinger, SAR.</div>
+        <div class="repo-lang"><span class="lang-dot"></span>—</div>
+        <div class="repo-date">2026-05-07</div>
+        <div class="repo-stars">★ 0</div>
+      </div>
+
+      <div class="repo-row">
+        <a class="repo-name" href="https://github.com/ChrisDover/WorldQuant_alpha101_code" target="_blank" rel="noopener">WorldQuant_alpha101_code <span class="repo-fork">fork</span></a>
+        <div class="repo-desc">Code for the Quantigic 101 Formulaic Alphas.</div>
+        <div class="repo-lang"><span class="lang-dot"></span>—</div>
+        <div class="repo-date">2026-05-07</div>
+        <div class="repo-stars">★ 0</div>
+      </div>
+
+      <div class="repo-row">
+        <a class="repo-name" href="https://github.com/ChrisDover/AutoTrader-fx" target="_blank" rel="noopener">AutoTrader-fx <span class="repo-fork">fork</span></a>
+        <div class="repo-desc">Python platform for automated trading — backtesting, optimisation, live trading.</div>
+        <div class="repo-lang"><span class="lang-dot"></span>—</div>
+        <div class="repo-date">2026-05-07</div>
+        <div class="repo-stars">★ 0</div>
+      </div>
+
+      <div class="repo-row">
+        <a class="repo-name" href="https://github.com/ChrisDover/TTR" target="_blank" rel="noopener">TTR <span class="repo-fork">fork</span></a>
+        <div class="repo-desc">Technical analysis and trading-rule construction in R.</div>
+        <div class="repo-lang"><span class="lang-dot r"></span>R</div>
+        <div class="repo-date">2026-05-07</div>
+        <div class="repo-stars">★ 0</div>
+      </div>
+
+      <div class="repo-row">
+        <a class="repo-name" href="https://github.com/ChrisDover/auquan-toolbox-python" target="_blank" rel="noopener">auquan-toolbox-python <span class="repo-fork">fork</span></a>
+        <div class="repo-desc">Backtesting toolbox for trading strategies.</div>
+        <div class="repo-lang"><span class="lang-dot python"></span>Python</div>
+        <div class="repo-date">2026-05-07</div>
+        <div class="repo-stars">★ 0</div>
+      </div>
+
+      <div class="repo-row">
+        <a class="repo-name" href="https://github.com/ChrisDover/awesome-quant" target="_blank" rel="noopener">awesome-quant <span class="repo-fork">fork</span></a>
+        <div class="repo-desc">Curated libraries, packages, and resources for quantitative finance.</div>
+        <div class="repo-lang"><span class="lang-dot"></span>—</div>
+        <div class="repo-date">2026-05-07</div>
+        <div class="repo-stars">★ 0</div>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="career">
+    <div class="section-head">
+      <h2>Career</h2>
+      <span class="meta"><span class="num">05 /</span> PATH</span>
+    </div>
+
+    <div class="roles">
+      <div class="role">
+        <div class="role-year">2026 — now</div>
+        <div class="role-body">
+          <h4>Founder</h4>
+          <div class="role-org">Pollinate Research · Remote</div>
+          <p>Building MAKO and x402 payment-agent workflows on crypto-native rails. Designing agent primitives for tool orchestration, API integrations, workflow state, payment logic, guardrails, observability, and eval. Daily driver across Claude Code, Codex, Cursor, Gemini.</p>
+        </div>
+      </div>
+
+      <div class="role">
+        <div class="role-year">2022 — now</div>
+        <div class="role-body">
+          <h4>Founder & Developer</h4>
+          <div class="role-org">Pollinate Trading · Remote</div>
+          <p>Solo-built fintech platform for systematic traders to $250K+ ARR. Product, frontend, backend, data, infra, backtesting, deployment, and customer workflows — all owned. Python · React/Next.js · Node · Postgres · AWS/Vercel.</p>
+        </div>
+      </div>
+
+      <div class="role">
+        <div class="role-year">2014 — now</div>
+        <div class="role-body">
+          <h4>Security Management Consultant</h4>
+          <div class="role-org">Enfocado Capital · Remote</div>
+          <p>EP strategy and program builds for Fortune 500 CEOs and families — zero security incidents. Custom software for security ops, client reporting, and operational efficiency. Operated a crypto hedge fund across multiple cycles.</p>
+        </div>
+      </div>
+
+      <div class="role">
+        <div class="role-year">2013 — 14</div>
+        <div class="role-body">
+          <h4>Founder</h4>
+          <div class="role-org">Geniusly · 500 Startups · San Francisco</div>
+          <p>Predictive risk analytics for transportation. Selected for 500 Startups; exited via acquisition of the technology and team.</p>
+        </div>
+      </div>
+
+      <div class="role">
+        <div class="role-year">2011 — 13</div>
+        <div class="role-body">
+          <h4>VP, Security Operations</h4>
+          <div class="role-org">Logistics Latin America · Colombia / Mexico</div>
+          <p>Built the Enterprise Security Plan from inception. Directed operations, budgets, government relations, and SOPs for high-risk-environment work across LATAM.</p>
+        </div>
+      </div>
+
+      <div class="role">
+        <div class="role-year">2004 — 11</div>
+        <div class="role-body">
+          <h4>Regional Operations Manager → Deputy PM</h4>
+          <div class="role-org">Triple Canopy · Iraq / Haiti / Israel</div>
+          <p>Directed multinational operations across the Middle East: 5,000+ personnel, $100M in U.S. government equipment, 24/7 tactical operations centers. Close protection for U.S. Embassy personnel, DoD facilities, and the President of Haiti during election transition.</p>
+        </div>
+      </div>
+
+      <div class="role">
+        <div class="role-year">1995 — 99</div>
+        <div class="role-body">
+          <h4>Infantry Corporal, Stack Leader</h4>
+          <div class="role-org">United States Marine Corps · 3rd Bn 1st Marines</div>
+          <p>Maritime Special Purpose Force, security element for MEU(SOC) Direct Action Platoon. Squad Leader, Security Forces, Guantanamo Bay.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="creds">
+      <h3>Credentials</h3>
+      <div class="creds-list">
+        <span class="item">500 Startups alum — prior exit</span>
+        <span class="item">USMC infantry team leader</span>
+        <span class="item">CPP — ASIS International</span>
+        <span class="item">U.S. Dept. of State HTP / driving / firearms instructor</span>
+        <span class="item">English (native) · Spanish (fluent)</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="cofounder" class="cofounder">
+    <div class="cofounder-inner">
+      <div>
+        <h2>Looking for a co-founder<em>, or to be one.</em></h2>
+        <p class="lede">
+          I move fast. I ship. I've built a fintech to <span class="mono" style="font-size: 14.5px;">$250K+ ARR</span> alone, but the next thing I'm building — MAKO — is bigger than one person.
+        </p>
+        <p class="lede" style="font-size: 17px;">
+          If you're building at the intersection of <strong>agents</strong>, <strong>x402 / agentic commerce</strong>, <strong>crypto-native payment rails</strong>, or <strong>AI for high-stakes operational environments</strong> — I want to hear from you.
+        </p>
+      </div>
+
+      <div>
+        <div class="label">What I bring</div>
+        <ul>
+          <li><span class="marker">→</span> 10+ years shipping production systems alone</li>
+          <li><span class="marker">→</span> Founder judgment with prior exit & live revenue</li>
+          <li><span class="marker">→</span> Deep stack: TypeScript, Python, Next.js, Postgres, AWS</li>
+          <li><span class="marker">→</span> Crypto/DeFi/web3 fluency across multiple cycles</li>
+          <li><span class="marker">→</span> Operating background: high-stakes, calm under load</li>
+          <li><span class="marker">→</span> Customer obsession — I've sold every dollar of ARR myself</li>
+        </ul>
+
+        <div class="contact-block" style="margin-top: 28px;">
+          <div class="row"><span class="key">email</span><a href="mailto:chris@pollinatetrading.com">chris@pollinatetrading.com</a></div>
+          <div class="row"><span class="key">github</span><a href="https://github.com/chrisdover" target="_blank" rel="noopener">/chrisdover</a></div>
+          <div class="row"><span class="key">x</span><a href="https://x.com/chrisdmacro" target="_blank" rel="noopener">@chrisdmacro</a></div>
+          <div class="row"><span class="key">linkedin</span><a href="https://linkedin.com/in/chrisdmacro" target="_blank" rel="noopener">/in/chrisdmacro</a></div>
+          <div class="row"><span class="key">based</span><span>Scottsdale, AZ — remote</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site">
+    <span>© 2026 chris dover · scottsdale, az</span>
+    <span>built in a single sitting · <a href="https://github.com/chrisdover" target="_blank" rel="noopener">source</a></span>
+  </footer>
+
+</div>
+
+</body>
+</html>
