@@ -9,44 +9,22 @@
 <meta property="og:description" content="AI-first founder-engineer. Agentic workflows, x402 payments, trading infrastructure. 25+ builds.">
 <meta property="og:type" content="profile">
 <meta property="og:url" content="https://chrisdover.com">
-<meta name="theme-color" content="#f7f5ef">
-<meta name="theme-color" content="#0e0f0c" media="(prefers-color-scheme: dark)">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<meta name="theme-color" content="#000000">
 <style>
   :root {
-    --bg: #f7f5ef;
-    --bg-elev: #fffefa;
-    --bg-sunk: #efece2;
-    --ink: #16170f;
-    --ink-soft: #45463c;
-    --ink-mute: #8a8a7c;
-    --rule: #d9d6c8;
-    --rule-soft: #e6e3d6;
-    --accent: #b8540a;
-    --live: #1f9d55;
-    --serif: "Fraunces", "Iowan Old Style", Charter, Georgia, serif;
-    --sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
-    --mono: "JetBrains Mono", ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
-  }
-
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --bg: #0e0f0c;
-      --bg-elev: #1a1b14;
-      --bg-sunk: #22231c;
-      --ink: #ecebdf;
-      --ink-soft: #b6b6a6;
-      --ink-mute: #6a6a5d;
-      --rule: #2a2b25;
-      --rule-soft: #1f201b;
-      --accent: #e09142;
-      --live: #4ade80;
-    }
-    .build-card { background: #1a1b14; }
-    .repo-row:hover { background: #22231c; }
-    .now-line .dot { box-shadow: 0 0 0 3px rgba(74, 222, 128, 0.12); }
+    --bg: #000000;
+    --bg-elev: #0d0e09;
+    --bg-sunk: #161710;
+    --ink: #ecebdf;
+    --ink-soft: #b6b6a6;
+    --ink-mute: #7a7a6d;
+    --rule: #2a2b25;
+    --rule-soft: #1c1d18;
+    --accent: #e09142;
+    --live: #4ade80;
+    --serif: ui-serif, Charter, "Iowan Old Style", "New York", Georgia, serif;
+    --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, "Helvetica Neue", Arial, sans-serif;
+    --mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
   }
 
   * { box-sizing: border-box; }
@@ -98,7 +76,7 @@
     width: 7px; height: 7px;
     border-radius: 50%;
     background: var(--live);
-    box-shadow: 0 0 0 3px rgba(31, 157, 85, 0.15);
+    box-shadow: 0 0 0 3px rgba(74, 222, 128, 0.18);
     flex-shrink: 0;
     animation: pulse 2.4s ease-in-out infinite;
   }
@@ -352,26 +330,17 @@
   }
   .build-card {
     background: var(--bg-elev);
-    border: 1px solid #c4c0b0;
+    border: 1px solid #2f3128;
     border-radius: 4px;
     padding: 28px 28px 24px;
     display: flex;
     flex-direction: column;
     gap: 14px;
-    box-shadow: 0 1px 0 rgba(22, 23, 15, 0.04), 0 8px 24px -16px rgba(22, 23, 15, 0.18);
-    transition: transform 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+    transition: transform 0.15s ease, border-color 0.15s ease;
   }
   .build-card:hover {
     transform: translateY(-2px);
-    border-color: #8a8675;
-    box-shadow: 0 1px 0 rgba(22, 23, 15, 0.06), 0 14px 32px -16px rgba(22, 23, 15, 0.28);
-  }
-  @media (prefers-color-scheme: dark) {
-    .build-card {
-      border-color: #2f3128;
-      box-shadow: 0 1px 0 rgba(0, 0, 0, 0.3), 0 10px 30px -16px rgba(0, 0, 0, 0.6);
-    }
-    .build-card:hover { border-color: #4a4c40; }
+    border-color: #4a4c40;
   }
   .build-card.feature {
     grid-column: span 2;
@@ -383,29 +352,19 @@
     align-items: center;
     font-family: var(--mono);
     font-size: 11.5px;
-    color: #5e5f54;
+    color: #9a9a8a;
     letter-spacing: 0.04em;
-  }
-  @media (prefers-color-scheme: dark) {
-    .b-meta { color: #9a9a8a; }
   }
   .b-tag {
     font-family: var(--mono);
-    background: #e8e4d4;
-    color: #3a3b32;
+    background: #1f2018;
+    color: #c4c2b3;
     padding: 3px 8px;
     border-radius: 3px;
-    border: 1px solid #c8c4b2;
+    border: 1px solid #36372d;
     font-size: 11px;
     text-transform: uppercase;
     letter-spacing: 0.06em;
-  }
-  @media (prefers-color-scheme: dark) {
-    .b-tag {
-      background: #1f2018;
-      color: #c4c2b3;
-      border-color: #36372d;
-    }
   }
   .live-pill {
     display: inline-flex;
@@ -414,10 +373,10 @@
     font-family: var(--mono);
     font-size: 11px;
     color: var(--live);
-    background: rgba(31, 157, 85, 0.08);
+    background: rgba(74, 222, 128, 0.08);
     padding: 2px 8px;
     border-radius: 3px;
-    border: 1px solid rgba(31, 157, 85, 0.25);
+    border: 1px solid rgba(74, 222, 128, 0.28);
     text-transform: uppercase;
     letter-spacing: 0.06em;
   }
@@ -436,14 +395,11 @@
     margin: 0;
   }
   .b-blurb {
-    color: #2f302a;
+    color: #d6d4c5;
     font-size: 15px;
     line-height: 1.6;
     margin: 0;
     flex: 1;
-  }
-  @media (prefers-color-scheme: dark) {
-    .b-blurb { color: #d6d4c5; }
   }
   .b-stack {
     display: flex;
@@ -453,18 +409,11 @@
     font-size: 11.5px;
   }
   .b-stack span {
-    color: #46473d;
-    background: #f1ede0;
-    border: 1px solid #cfcbb9;
+    color: #b8b6a7;
+    background: #16170f;
+    border: 1px solid #313229;
     padding: 2px 8px;
     border-radius: 2px;
-  }
-  @media (prefers-color-scheme: dark) {
-    .b-stack span {
-      color: #b8b6a7;
-      background: #1a1b15;
-      border-color: #313229;
-    }
   }
   .b-links {
     display: flex;
@@ -476,17 +425,11 @@
   }
   .build-card .b-links a {
     color: var(--ink);
-    border-bottom: 1px solid #a8a496;
+    border-bottom: 1px solid #4a4c40;
   }
   .build-card .b-links a:hover {
     border-bottom-color: var(--ink);
     color: var(--accent);
-  }
-  @media (prefers-color-scheme: dark) {
-    .build-card:not(.feature) .b-links a {
-      color: var(--ink);
-      border-bottom-color: #4a4c40;
-    }
   }
 
   /* ============== All repos table ============== */
