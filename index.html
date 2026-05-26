@@ -1,1473 +1,611 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Chris Dover — AI-first builder of production agent systems</title>
-<meta name="description" content="AI-first founder-engineer. Built Pollinate Trading to $250K+ ARR, MAKO/x402 agent-payment workflows, Visible Edge, and Centinela Intel. 500 Startups exit. Iraq/USMC operational background.">
-<meta property="og:title" content="Chris Dover — AI-first builder of production agent systems">
-<meta property="og:description" content="Founder-engineer building production agent systems for money, compliance, intelligence, and operations. Pollinate Trading $250K+ ARR. MAKO/x402 agent commerce.">
-<meta property="og:type" content="profile">
-<meta property="og:url" content="https://chrisdover.com">
-<link rel="canonical" href="https://chrisdover.com">
-<meta name="theme-color" content="#000000">
-<style>
-  :root {
-    --bg: #000000;
-    --bg-elev: #0d0e09;
-    --bg-sunk: #161710;
-    --ink: #ecebdf;
-    --ink-soft: #b6b6a6;
-    --ink-mute: #7a7a6d;
-    --rule: #2a2b25;
-    --rule-soft: #1c1d18;
-    --accent: #e09142;
-    --live: #4ade80;
-    --serif: ui-serif, Charter, "Iowan Old Style", "New York", Georgia, serif;
-    --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, "Helvetica Neue", Arial, sans-serif;
-    --mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
-  }
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Chris Dover — Operating leader for AI-native companies</title>
+  <meta name="description" content="Founder &amp; CEO. Built Pollinate Trading to $250K+ ARR. 500 Startups exit. Directed 5,000+ personnel across multinational operations. Currently building MAKO. Open to VP / Director / Chief AI roles.">
+  <meta property="og:title" content="Chris Dover — Operating leader for AI-native companies">
+  <meta property="og:description" content="Founder &amp; CEO with multi-cycle operating experience across AI, fintech, and high-stakes operations. Open to VP / Director / Chief AI roles.">
+  <meta property="og:type" content="profile">
+  <meta property="og:url" content="https://chrisdover.com">
+  <meta name="theme-color" content="#ffffff">
 
-  * { box-sizing: border-box; }
-  html, body { margin: 0; padding: 0; }
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Chris Dover",
+    "url": "https://chrisdover.com",
+    "jobTitle": "Founder & CEO",
+    "description": "Operating leader for AI-native companies. Founder of Pollinate Research (MAKO) and Pollinate Trading.",
+    "sameAs": [
+      "https://github.com/chrisdover",
+      "https://x.com/chrisdmacro",
+      "https://linkedin.com/in/chrisdmacro",
+      "https://pollinateresearch.com",
+      "https://pollinatetrading.com"
+    ]
+  }
+  </script>
 
-  body {
-    font-family: var(--sans);
-    color: var(--ink);
-    background: var(--bg);
-    line-height: 1.55;
-    font-size: 16.5px;
-    font-weight: 400;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    font-feature-settings: "ss01", "cv11";
-  }
-
-  a {
-    color: var(--ink);
-    text-decoration: none;
-    border-bottom: 1px solid var(--rule);
-    transition: border-color 0.15s ease, color 0.15s ease;
-  }
-  a:hover { border-bottom-color: var(--ink); }
-
-  ::selection { background: var(--accent); color: #fff; }
-
-  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 32px; }
-  .mono { font-family: var(--mono); font-feature-settings: "ss01", "ss02"; }
-
-  /* ============== Status bar ============== */
-  .statusbar {
-    border-bottom: 1px solid var(--rule);
-    background: var(--bg-sunk);
-    font-family: var(--mono);
-    font-size: 12.5px;
-    color: var(--ink-soft);
-  }
-  .statusbar-inner {
-    max-width: 1080px;
-    margin: 0 auto;
-    padding: 10px 32px;
-    display: flex;
-    align-items: center;
-    gap: 18px;
-    flex-wrap: wrap;
-  }
-  .status-dot {
-    width: 7px; height: 7px;
-    border-radius: 50%;
-    background: var(--live);
-    box-shadow: 0 0 0 3px rgba(74, 222, 128, 0.18);
-    flex-shrink: 0;
-    animation: pulse 2.4s ease-in-out infinite;
-  }
-  @keyframes pulse {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.55; }
-  }
-  .status-text { color: var(--ink); }
-  .status-sep { color: var(--rule); margin: 0 -6px; }
-  .status-cta {
-    margin-left: auto;
-    color: var(--accent);
-    border-bottom: 1px solid transparent;
-  }
-  .status-cta:hover { border-bottom-color: var(--accent); }
-
-  /* ============== Top nav ============== */
-  header.top {
-    padding: 26px 0 0;
-  }
-  .top-inner {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    gap: 24px;
-    flex-wrap: wrap;
-  }
-  .brand {
-    font-family: var(--mono);
-    font-weight: 500;
-    font-size: 14px;
-    border: none;
-    letter-spacing: -0.01em;
-  }
-  .brand .caret { color: var(--accent); margin-right: 4px; }
-  .top nav {
-    display: flex;
-    gap: 24px;
-    font-family: var(--mono);
-    font-size: 13px;
-    color: var(--ink-soft);
-  }
-  .top nav a { border: none; color: var(--ink-soft); }
-  .top nav a:hover { color: var(--ink); }
-
-  /* ============== Hero ============== */
-  section.hero { padding: 84px 0 56px; max-width: 880px; }
-
-  .eyebrow {
-    font-family: var(--mono);
-    font-size: 12px;
-    letter-spacing: 0.04em;
-    color: var(--ink-mute);
-    margin-bottom: 28px;
-  }
-  .eyebrow .num { color: var(--accent); margin-right: 8px; }
-
-  h1 {
-    font-family: var(--serif);
-    font-weight: 400;
-    font-size: clamp(40px, 6.4vw, 76px);
-    line-height: 1.02;
-    letter-spacing: -0.028em;
-    margin: 0 0 28px;
-  }
-  h1 em {
-    font-style: italic;
-    font-weight: 300;
-    color: var(--ink-soft);
-  }
-  .lede {
-    font-family: var(--serif);
-    font-weight: 300;
-    font-size: clamp(20px, 2.4vw, 26px);
-    line-height: 1.45;
-    color: var(--ink-soft);
-    max-width: 720px;
-    margin: 0 0 36px;
-  }
-  .lede code {
-    font-family: var(--mono);
-    font-size: 0.78em;
-    background: var(--bg-sunk);
-    padding: 2px 8px;
-    border-radius: 3px;
-    color: var(--ink);
-    border: 1px solid var(--rule-soft);
-    font-weight: 400;
-  }
-  .hero-cta {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px 14px;
-    align-items: center;
-    margin-top: 8px;
-  }
-  .btn {
-    font-family: var(--mono);
-    font-size: 13px;
-    padding: 11px 18px;
-    border: 1px solid var(--ink);
-    border-radius: 3px;
-    background: var(--ink);
-    color: var(--bg);
-    transition: opacity 0.15s ease;
-  }
-  .btn:hover { opacity: 0.86; border-bottom-color: var(--ink); }
-  .btn.ghost {
-    background: transparent;
-    color: var(--ink);
-    border-color: var(--rule);
-  }
-  .btn.ghost:hover { border-color: var(--ink); }
-
-  /* ============== Section primitives ============== */
-  section { padding: 64px 0; }
-  .section-head {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    border-top: 1px solid var(--rule);
-    padding-top: 24px;
-    margin-bottom: 40px;
-  }
-  .section-head h2 {
-    font-family: var(--serif);
-    font-weight: 400;
-    font-size: clamp(28px, 3.4vw, 38px);
-    letter-spacing: -0.02em;
-    margin: 0;
-  }
-  .section-head .meta {
-    font-family: var(--mono);
-    font-size: 12px;
-    color: var(--ink-mute);
-  }
-  .section-head .meta .num { color: var(--accent); }
-
-  .section-lede {
-    font-family: var(--serif);
-    font-weight: 300;
-    font-size: 19px;
-    line-height: 1.55;
-    color: var(--ink-soft);
-    max-width: 760px;
-    margin: 0 0 36px;
-  }
-  .section-lede strong { font-weight: 500; color: var(--ink); }
-  .section-note {
-    font-family: var(--mono);
-    font-size: 12.5px;
-    color: var(--ink-mute);
-    margin-top: 28px;
-    padding-top: 20px;
-    border-top: 1px dashed var(--rule);
-    max-width: 760px;
-    line-height: 1.6;
-  }
-
-  .focus-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-  }
-  .focus-card {
-    background: var(--bg-elev);
-    border: 1px solid #2f3128;
-    border-radius: 4px;
-    padding: 32px 30px 28px;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    transition: border-color 0.15s ease;
-  }
-  .focus-card:hover { border-color: #4a4c40; }
-  .focus-num {
-    font-family: var(--mono);
-    font-size: 12px;
-    color: var(--accent);
-    letter-spacing: 0.1em;
-  }
-  .focus-card h3 {
-    font-family: var(--serif);
-    font-weight: 500;
-    font-size: 24px;
-    line-height: 1.2;
-    letter-spacing: -0.015em;
-    margin: 0 0 2px;
-    color: var(--ink);
-  }
-  .focus-card p {
-    color: #d6d4c5;
-    font-size: 15px;
-    line-height: 1.65;
-    margin: 0;
-  }
-  @media (max-width: 880px) {
-    .focus-grid { grid-template-columns: 1fr; }
-  }
-
-  /* ============== Now / activity log ============== */
-  .now {
-    background: var(--bg-elev);
-    border: 1px solid var(--rule);
-    border-radius: 4px;
-    padding: 24px 28px;
-    font-family: var(--mono);
-    font-size: 13.5px;
-    line-height: 1.9;
-    color: var(--ink-soft);
-  }
-  .now-header {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 14px;
-    padding-bottom: 14px;
-    border-bottom: 1px dashed var(--rule);
-    color: var(--ink-mute);
-    font-size: 12px;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-  }
-  .now-line { display: flex; gap: 14px; align-items: baseline; }
-  .now-line .date { color: var(--ink-mute); flex-shrink: 0; }
-  .now-line .what { color: var(--ink); }
-  .now-line a { color: var(--ink); border-bottom: 1px dotted var(--ink-mute); }
-  .now-line a:hover { border-bottom-color: var(--ink); }
-  .now-tag {
-    display: inline-block;
-    font-size: 10.5px;
-    padding: 1px 7px;
-    border-radius: 2px;
-    background: var(--bg-sunk);
-    color: var(--ink-soft);
-    border: 1px solid var(--rule-soft);
-    margin-right: 6px;
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-  }
-  .now-tag.ship { color: var(--live); border-color: rgba(31,157,85,0.3); }
-  .now-tag.live { color: var(--accent); border-color: rgba(184,84,10,0.3); }
-
-  /* ============== About ============== */
-  .about-grid {
-    display: grid;
-    grid-template-columns: 1.4fr 1fr;
-    gap: 56px;
-    align-items: start;
-  }
-  .about-grid .prose p {
-    font-family: var(--serif);
-    font-weight: 300;
-    font-size: 19px;
-    line-height: 1.55;
-    color: var(--ink-soft);
-    margin: 0 0 18px;
-  }
-  .about-grid .prose strong {
-    font-weight: 500;
-    color: var(--ink);
-  }
-  .about-grid .prose .pill {
-    display: inline;
-    font-family: var(--mono);
-    font-size: 13px;
-    background: var(--bg-sunk);
-    padding: 1px 7px;
-    border-radius: 3px;
-    border: 1px solid var(--rule-soft);
-    color: var(--ink);
-    font-weight: 400;
-  }
-
-  .stats {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 0;
-    border: 1px solid var(--rule);
-    border-radius: 4px;
-    overflow: hidden;
-  }
-  .stat {
-    padding: 22px 22px;
-    border-right: 1px solid var(--rule);
-    border-bottom: 1px solid var(--rule);
-  }
-  .stat:nth-child(2n) { border-right: none; }
-  .stat:nth-last-child(-n+2) { border-bottom: none; }
-  .stat .num {
-    font-family: var(--serif);
-    font-size: 32px;
-    font-weight: 400;
-    line-height: 1;
-    letter-spacing: -0.025em;
-    display: block;
-    margin-bottom: 6px;
-  }
-  .stat .lbl {
-    font-family: var(--mono);
-    font-size: 11.5px;
-    color: var(--ink-mute);
-    line-height: 1.4;
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-  }
-
-  /* ============== Featured builds ============== */
-  .featured {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-  }
-  .build-card {
-    background: var(--bg-elev);
-    border: 1px solid #2f3128;
-    border-radius: 4px;
-    padding: 28px 28px 24px;
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
-    transition: transform 0.15s ease, border-color 0.15s ease;
-  }
-  .build-card:hover {
-    transform: translateY(-2px);
-    border-color: #4a4c40;
-  }
-  .build-card.feature {
-    grid-column: span 2;
-  }
-
-  .b-meta {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-family: var(--mono);
-    font-size: 11.5px;
-    color: #9a9a8a;
-    letter-spacing: 0.04em;
-  }
-  .b-tag {
-    font-family: var(--mono);
-    background: #1f2018;
-    color: #c4c2b3;
-    padding: 3px 8px;
-    border-radius: 3px;
-    border: 1px solid #36372d;
-    font-size: 11px;
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-  }
-  .live-pill {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    font-family: var(--mono);
-    font-size: 11px;
-    color: var(--live);
-    background: rgba(74, 222, 128, 0.08);
-    padding: 2px 8px;
-    border-radius: 3px;
-    border: 1px solid rgba(74, 222, 128, 0.28);
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-  }
-  .live-pill::before {
-    content: "";
-    width: 6px; height: 6px;
-    border-radius: 50%;
-    background: var(--live);
-  }
-  .build-card h3 {
-    font-family: var(--serif);
-    font-weight: 500;
-    font-size: 24px;
-    line-height: 1.18;
-    letter-spacing: -0.015em;
-    margin: 0;
-  }
-  .b-blurb {
-    color: #d6d4c5;
-    font-size: 15px;
-    line-height: 1.6;
-    margin: 0;
-    flex: 1;
-  }
-  .b-stack {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 6px;
-    font-family: var(--mono);
-    font-size: 11.5px;
-  }
-  .b-stack span {
-    color: #b8b6a7;
-    background: #16170f;
-    border: 1px solid #313229;
-    padding: 2px 8px;
-    border-radius: 2px;
-  }
-  .b-links {
-    display: flex;
-    gap: 18px;
-    font-family: var(--mono);
-    font-size: 12.5px;
-    margin-top: 4px;
-    flex-wrap: wrap;
-  }
-  .build-card .b-links a {
-    color: var(--ink);
-    border-bottom: 1px solid #4a4c40;
-  }
-  .build-card .b-links a:hover {
-    border-bottom-color: var(--ink);
-    color: var(--accent);
-  }
-
-  /* ============== All repos table ============== */
-  .repos-wrap {
-    border: 1px solid var(--rule);
-    border-radius: 4px;
-    overflow: hidden;
-    background: var(--bg-elev);
-  }
-  .repos-head {
-    display: grid;
-    grid-template-columns: 220px 1fr 110px 92px 70px;
-    gap: 20px;
-    padding: 12px 20px;
-    font-family: var(--mono);
-    font-size: 11px;
-    color: var(--ink-mute);
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    background: var(--bg-sunk);
-    border-bottom: 1px solid var(--rule);
-  }
-  .repo-row {
-    display: grid;
-    grid-template-columns: 220px 1fr 110px 92px 70px;
-    gap: 20px;
-    padding: 14px 20px;
-    border-bottom: 1px solid var(--rule-soft);
-    align-items: center;
-    transition: background 0.12s ease;
-  }
-  .repo-row:last-child { border-bottom: none; }
-  .repo-row:hover { background: var(--bg-sunk); }
-
-  .repo-name {
-    font-family: var(--mono);
-    font-size: 13.5px;
-    font-weight: 500;
-    color: var(--ink);
-    border: none;
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-  }
-  .repo-name:hover { color: var(--accent); }
-  .repo-fork {
-    font-family: var(--mono);
-    font-size: 9.5px;
-    background: var(--bg-sunk);
-    color: var(--ink-mute);
-    padding: 1px 5px;
-    border-radius: 2px;
-    border: 1px solid var(--rule-soft);
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    font-weight: 400;
-  }
-  .repo-desc {
-    font-size: 13.5px;
-    color: var(--ink-soft);
-    line-height: 1.45;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-  }
-  .repo-lang {
-    font-family: var(--mono);
-    font-size: 11.5px;
-    color: var(--ink-soft);
-    display: flex;
-    align-items: center;
-    gap: 7px;
-  }
-  .lang-dot {
-    width: 8px; height: 8px;
-    border-radius: 50%;
-    background: var(--ink-mute);
-  }
-  .lang-dot.typescript { background: #3178c6; }
-  .lang-dot.javascript { background: #f1e05a; }
-  .lang-dot.python { background: #3572A5; }
-  .lang-dot.html { background: #e34c26; }
-  .lang-dot.r { background: #198CE7; }
-  .lang-dot.openedge-abl { background: #5ce600; }
-
-  .repo-date {
-    font-family: var(--mono);
-    font-size: 11.5px;
-    color: var(--ink-mute);
-  }
-  .repo-stars {
-    font-family: var(--mono);
-    font-size: 12px;
-    color: var(--ink-mute);
-    text-align: right;
-  }
-
-  /* ============== Career timeline ============== */
-  .roles { display: grid; }
-  .role {
-    display: grid;
-    grid-template-columns: 150px 1fr;
-    gap: 32px;
-    padding: 22px 0;
-    border-top: 1px solid var(--rule);
-  }
-  .role:last-child { border-bottom: 1px solid var(--rule); }
-  .role-year {
-    font-family: var(--mono);
-    font-size: 12.5px;
-    color: var(--ink-mute);
-    padding-top: 4px;
-  }
-  .role-body h4 {
-    font-family: var(--serif);
-    font-weight: 500;
-    font-size: 20px;
-    margin: 0 0 4px;
-    letter-spacing: -0.012em;
-  }
-  .role-body .role-org {
-    font-family: var(--mono);
-    font-size: 12.5px;
-    color: var(--ink-mute);
-    margin-bottom: 10px;
-  }
-  .role-body p {
-    margin: 0;
-    color: var(--ink-soft);
-    font-size: 15px;
-    line-height: 1.6;
-  }
-
-  .creds {
-    background: var(--bg-elev);
-    border: 1px solid var(--rule);
-    border-radius: 4px;
-    padding: 32px;
-    margin-top: 12px;
-  }
-  .creds h3 {
-    font-family: var(--mono);
-    font-weight: 500;
-    font-size: 12px;
-    margin: 0 0 16px;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: var(--ink-mute);
-  }
-  .creds-list {
-    font-size: 14.5px;
-    color: var(--ink-soft);
-    line-height: 1.8;
-  }
-  .creds-list .item::after {
-    content: "·";
-    color: var(--rule);
-    margin: 0 12px;
-  }
-  .creds-list .item:last-child::after { content: ""; }
-
-  /* ============== Co-founder section ============== */
-  section.cofounder {
-    padding: 88px 0 56px;
-    border-top: 1px solid var(--rule);
-    margin-top: 64px;
-  }
-  .cofounder-inner {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 56px;
-    align-items: start;
-  }
-  .cofounder h2 {
-    font-family: var(--serif);
-    font-weight: 400;
-    font-size: clamp(32px, 4.6vw, 52px);
-    letter-spacing: -0.022em;
-    margin: 0 0 20px;
-    line-height: 1.06;
-  }
-  .cofounder h2 em { font-style: italic; font-weight: 300; color: var(--ink-soft); }
-  .cofounder .lede {
-    font-size: 19px;
-    margin-bottom: 24px;
-  }
-  .cofounder ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    font-family: var(--mono);
-    font-size: 13.5px;
-    color: var(--ink-soft);
-  }
-  .cofounder ul li {
-    display: flex;
-    gap: 12px;
-    padding: 9px 0;
-    border-bottom: 1px dashed var(--rule);
-  }
-  .cofounder ul li:last-child { border-bottom: none; }
-  .cofounder ul li .marker { color: var(--accent); flex-shrink: 0; }
-  .cofounder .label {
-    font-family: var(--mono);
-    font-size: 11px;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: var(--ink-mute);
-    margin-bottom: 14px;
-  }
-
-  .contact-block {
-    background: var(--bg-elev);
-    border: 1px solid var(--rule);
-    border-radius: 4px;
-    padding: 28px;
-  }
-  .contact-block .row {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    padding: 10px 0;
-    border-bottom: 1px solid var(--rule-soft);
-    font-family: var(--mono);
-    font-size: 13.5px;
-  }
-  .contact-block .row:last-child { border-bottom: none; }
-  .contact-block .row .key { color: var(--ink-mute); }
-  .contact-block .row a { border: none; color: var(--ink); }
-  .contact-block .row a:hover { color: var(--accent); }
-
-  /* ============== Footer ============== */
-  footer.site {
-    padding: 32px 0 48px;
-    border-top: 1px solid var(--rule);
-    font-family: var(--mono);
-    font-size: 12px;
-    color: var(--ink-mute);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 12px;
-  }
-  footer.site a { color: var(--ink-mute); border: none; }
-  footer.site a:hover { color: var(--ink); }
-
-  /* ============== Responsive ============== */
-  @media (max-width: 880px) {
-    .wrap, .statusbar-inner { padding-left: 22px; padding-right: 22px; }
-    section.hero { padding: 56px 0 36px; }
-    section { padding: 48px 0; }
-    .about-grid { grid-template-columns: 1fr; gap: 32px; }
-    .featured { grid-template-columns: 1fr; }
-    .build-card.feature { grid-column: span 1; }
-    .role { grid-template-columns: 1fr; gap: 4px; }
-    .role-year { padding-top: 0; }
-    .creds { padding: 24px; }
-    .cofounder-inner { grid-template-columns: 1fr; gap: 36px; }
-    .stats { grid-template-columns: 1fr 1fr; }
-
-    .repos-head { display: none; }
-    .repo-row {
-      grid-template-columns: 1fr;
-      gap: 6px;
-      padding: 16px 18px;
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #0a0a0a;
+      --muted: #6b6b6b;
+      --line: #e5e5e5;
+      --code-bg: #f7f7f5;
+      --mono: ui-monospace, "SF Mono", "Menlo", "JetBrains Mono", "Consolas", monospace;
     }
-    .repo-meta-row {
-      display: flex;
-      gap: 14px;
-      align-items: center;
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; background: var(--bg); }
+    body {
       font-family: var(--mono);
-      font-size: 11.5px;
-      color: var(--ink-mute);
+      color: var(--text);
+      line-height: 1.6;
+      font-size: 14.5px;
+      -webkit-font-smoothing: antialiased;
+      font-variant-ligatures: none;
     }
-    .top nav { gap: 16px; font-size: 12px; }
-    .statusbar-inner { font-size: 11.5px; gap: 10px; }
-    .status-cta { margin-left: 0; }
-  }
-</style>
+    a { color: var(--text); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px; }
+    a:hover { color: var(--muted); }
+    main { max-width: 720px; margin: 0 auto; padding: 56px 28px 80px; }
+
+    /* hero */
+    .brand { font-size: 12px; color: var(--muted); letter-spacing: 0.06em; text-transform: uppercase; margin: 0 0 28px; }
+    h1 {
+      font-size: clamp(26px, 4.4vw, 34px);
+      font-weight: 500;
+      letter-spacing: -0.015em;
+      line-height: 1.2;
+      margin: 0 0 20px;
+      max-width: 640px;
+    }
+    .lede { color: var(--text); font-size: 15px; margin: 0 0 8px; max-width: 640px; }
+    .lede.muted { color: var(--muted); margin: 0 0 36px; }
+
+    /* sections */
+    section { margin: 0 0 56px; }
+    h2 {
+      font-size: 11px;
+      font-weight: 500;
+      color: var(--muted);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin: 0 0 20px;
+      padding-top: 28px;
+      border-top: 1px solid var(--line);
+    }
+    section > p { font-size: 14.5px; margin: 0 0 14px; }
+    section > p.muted { color: var(--muted); }
+    section > p strong { font-weight: 600; }
+
+    /* fact rows */
+    .facts dl {
+      margin: 0;
+      display: grid;
+      grid-template-columns: 180px 1fr;
+      gap: 6px 24px;
+      font-size: 13.5px;
+    }
+    .facts dt { color: var(--muted); }
+    .facts dd { margin: 0; word-break: break-word; }
+    @media (max-width: 600px) {
+      .facts dl { grid-template-columns: 1fr; gap: 2px; }
+      .facts dt { margin-top: 8px; }
+      .facts dd { margin-bottom: 4px; }
+    }
+
+    /* tables */
+    table.t { font-size: 13.5px; width: 100%; border-collapse: collapse; margin: 0 0 14px; }
+    table.t th, table.t td {
+      text-align: left;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--line);
+      vertical-align: top;
+    }
+    table.t th {
+      font-weight: 500;
+      color: var(--muted);
+      font-size: 11px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+    table.t td:first-child { font-weight: 600; padding-right: 18px; white-space: nowrap; }
+    table.t td:nth-child(2) { padding-right: 18px; }
+    table.t td:nth-child(3) { padding-right: 18px; color: var(--text); white-space: nowrap; }
+    table.t td:last-child { color: var(--muted); }
+
+    /* wider description table (used for repos/builds) */
+    table.t.wide td:first-child { white-space: nowrap; padding-right: 18px; }
+    table.t.wide td:nth-child(2) { padding-right: 18px; color: var(--muted); white-space: normal; }
+    table.t.wide td:nth-child(3) { padding-right: 18px; color: var(--muted); white-space: nowrap; font-size: 12.5px; }
+    table.t.wide td:last-child { color: var(--muted); white-space: nowrap; font-size: 12.5px; text-align: right; }
+
+    @media (max-width: 600px) {
+      table.t, table.t th, table.t td { display: block; padding: 0; border: 0; }
+      table.t thead { display: none; }
+      table.t tbody tr { border-bottom: 1px solid var(--line); padding: 12px 0; display: block; }
+      table.t td { padding: 2px 0 !important; white-space: normal !important; }
+      table.t td:first-child { font-weight: 600; }
+      table.t td:nth-child(2) { color: var(--muted); }
+      table.t td:last-child { color: var(--muted); text-align: left; }
+    }
+
+    /* code block */
+    .code {
+      background: var(--code-bg);
+      color: var(--text);
+      padding: 18px 22px;
+      font-size: 12.5px;
+      line-height: 1.65;
+      overflow-x: auto;
+      margin: 0 0 14px;
+      border: 1px solid var(--line);
+    }
+    .code pre { margin: 0; white-space: pre; font-family: var(--mono); }
+
+    /* numbered list */
+    ol.num {
+      counter-reset: item;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      font-size: 14.5px;
+    }
+    ol.num li {
+      counter-increment: item;
+      position: relative;
+      padding-left: 32px;
+      margin: 0 0 18px;
+    }
+    ol.num li::before {
+      content: counter(item, decimal-leading-zero);
+      position: absolute;
+      left: 0;
+      top: 0;
+      font-size: 11px;
+      color: var(--muted);
+      letter-spacing: 0.04em;
+      padding-top: 4px;
+    }
+    ol.num li strong { font-weight: 600; }
+    ol.num li p { margin: 4px 0 0; color: var(--muted); }
+
+    /* now-log */
+    .log { font-size: 13.5px; }
+    .log .row { display: grid; grid-template-columns: 110px 1fr; gap: 18px; padding: 8px 0; border-bottom: 1px solid var(--line); }
+    .log .row:last-child { border-bottom: 0; }
+    .log .date { color: var(--muted); white-space: nowrap; }
+    .log .tag { display: inline-block; font-size: 10.5px; color: var(--muted); letter-spacing: 0.06em; text-transform: uppercase; padding: 1px 6px; border: 1px solid var(--line); margin-right: 8px; }
+    @media (max-width: 600px) {
+      .log .row { grid-template-columns: 1fr; gap: 2px; }
+    }
+
+    /* aligned-with style for credentials */
+    .aligned {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 18px;
+      font-size: 13px;
+      color: var(--muted);
+      margin: 0 0 16px;
+    }
+    .aligned span { white-space: nowrap; }
+
+    /* footer */
+    footer { font-size: 12.5px; color: var(--muted); margin-top: 64px; padding-top: 28px; border-top: 1px solid var(--line); }
+    footer .row { display: flex; gap: 22px; flex-wrap: wrap; margin: 0 0 14px; }
+    footer .small { font-size: 11.5px; opacity: 0.75; margin-top: 14px; line-height: 1.55; }
+
+    .mono { font-family: var(--mono); }
+    .nowrap { white-space: nowrap; }
+  </style>
 </head>
 <body>
 
-<div class="statusbar">
-  <div class="statusbar-inner">
-    <span class="status-dot" aria-hidden="true"></span>
-    <span><span class="status-text">Currently building MAKO</span> — x402 payment-agent workflows for autonomous commerce</span>
-    <span class="status-sep">|</span>
-    <span>Scottsdale, AZ</span>
-    <a class="status-cta" href="#contact">Open to founding AI systems roles →</a>
-  </div>
-</div>
+  <main>
 
-<div class="wrap">
+    <!-- ============ HERO ============ -->
+    <header>
+      <p class="brand">[ chris dover · operating leader · ai-native companies ]</p>
+      <h1>Operating leader for AI-native companies.</h1>
+      <p class="lede">
+        Founder &amp; CEO with multi-cycle experience across AI, fintech, and high-stakes operations.
+        Built Pollinate Trading to $250K+ ARR. Prior 500 Startups exit. Earlier: directed 5,000+ personnel
+        across multinational programs. Currently building MAKO.
+      </p>
+      <p class="lede muted">
+        Open to VP / Director / Chief AI roles at AI-native and established companies where
+        builder fluency, operating discipline, and market depth are the unlock.
+      </p>
+    </header>
 
-  <header class="top">
-    <div class="top-inner">
-      <a href="#" class="brand"><span class="caret">$</span>chrisdover</a>
-      <nav>
-        <a href="#now">now</a>
-        <a href="#focus">focus</a>
-        <a href="#builds">builds</a>
-        <a href="#systems">systems</a>
-        <a href="#repos">repos</a>
-        <a href="#career">career</a>
-        <a href="#contact">contact</a>
-      </nav>
-    </div>
-  </header>
+    <!-- ============ AT A GLANCE ============ -->
+    <section>
+      <h2>At a glance</h2>
+      <div class="facts">
+        <dl>
+          <dt>ARR built</dt>
+          <dd>$250K+ · Pollinate Trading · founder &amp; CEO</dd>
 
-  <section class="hero">
-    <div class="eyebrow"><span class="num">00 /</span>HELLO</div>
-    <h1>I build production agent systems<em> for workflows that matter.</em></h1>
-    <p class="lede">
-      AI-first founder-engineer building agents for money movement, compliance, intelligence, trading, and high-stakes operations. Solo-built Pollinate Trading to <code>$250K+ ARR</code>. Currently building MAKO/x402 payment-agent workflows. Prior <code>500 Startups</code> exit. Earlier: Iraq, State Dept, DoD, USMC.
-    </p>
-    <div class="hero-cta">
-      <a class="btn" href="#builds">See the work</a>
-      <a class="btn ghost" href="/resume/Chris_Dover_AI_Systems_Builder_Resume_2026.pdf">Download resume</a>
-      <a class="btn ghost" href="https://github.com/chrisdover" target="_blank" rel="noopener">github.com/chrisdover ↗</a>
-      <a class="btn ghost" href="#contact">Get in touch</a>
-    </div>
-  </section>
+          <dt>Personnel directed</dt>
+          <dd>5,000+ across multinational operations</dd>
 
-  <section id="now">
-    <div class="section-head">
-      <h2>Now</h2>
-      <span class="meta"><span class="num">01 /</span> SHIPPING LOG</span>
-    </div>
-    <div class="now">
-      <div class="now-header"><span>~/chrisdover</span> <span>$ git log --recent</span></div>
-      <div class="now-line"><span class="date">2026-05-18</span><span class="what"><span class="now-tag ship">ship</span>integrated <a href="https://github.com/ChrisDover/gbrain" target="_blank" rel="noopener">gbrain</a> into MAKO's agent orchestration loop</span></div>
-      <div class="now-line"><span class="date">2026-05-14</span><span class="what"><span class="now-tag live">live</span>released <a href="https://github.com/ChrisDover/mako-mcp-server" target="_blank" rel="noopener">mako-mcp-server</a> — paid x402 endpoints as MCP tools</span></div>
-      <div class="now-line"><span class="date">2026-05-13</span><span class="what"><span class="now-tag live">live</span><a href="https://github.com/ChrisDover/mako-verifier" target="_blank" rel="noopener">mako-verifier</a> deployed to mako.pollinateresearch.com</span></div>
-      <div class="now-line"><span class="date">2026-05-07</span><span class="what"><span class="now-tag ship">ship</span><a href="https://github.com/ChrisDover/outlive-engine" target="_blank" rel="noopener">outlive-engine</a> v0.x — open-source longevity protocol platform</span></div>
-      <div class="now-line"><span class="date">2026-05-01</span><span class="what"><span class="now-tag ship">ship</span><a href="https://github.com/ChrisDover/visible-edge" target="_blank" rel="noopener">visible-edge</a> — CMMC compliance lead-gen microsite</span></div>
-      <div class="now-line"><span class="date">2026-04-23</span><span class="what"><span class="now-tag ship">ship</span><a href="https://github.com/ChrisDover/Silo" target="_blank" rel="noopener">Silo</a> — session-locked AI coding terminal. One project. No drift.</span></div>
-    </div>
-  </section>
+          <dt>U.S. govt equipment</dt>
+          <dd>$100M managed across Iraq · Haiti · Israel</dd>
 
-  <section id="about">
-    <div class="section-head">
+          <dt>500 Startups</dt>
+          <dd>Alum · prior exit via acquisition</dd>
+
+          <dt>Markets</dt>
+          <dd>26+ years · multi-cycle operator · equities, futures, FX, crypto, bonds</dd>
+
+          <dt>Public builds</dt>
+          <dd>25+ shipped · <a href="https://github.com/chrisdover">github.com/chrisdover</a></dd>
+
+          <dt>Based</dt>
+          <dd>Scottsdale, AZ · remote</dd>
+
+          <dt>Contact</dt>
+          <dd><a href="mailto:chris@pollinatetrading.com">chris@pollinatetrading.com</a></dd>
+        </dl>
+      </div>
+    </section>
+
+    <!-- ============ ABOUT ============ -->
+    <section>
       <h2>About</h2>
-      <span class="meta"><span class="num">02 /</span> BIO</span>
-    </div>
-    <div class="about-grid">
-      <div class="prose">
-        <p>I'm a <strong>hands-on AI-first founder-engineer</strong>. I build the product, the backend, the data layer, the agent workflow, the eval loop, and the operator-facing UX. My edge is turning ambiguous real-world problems into production systems people actually use.</p>
-        <p>Built <strong>Pollinate Trading</strong> to <span class="pill">$250K+ ARR</span> as a solo founder, owning product, P&amp;L, customer base, frontend, backend, data, infra, backtesting, deployment, and support. Now building <strong>MAKO</strong> at Pollinate Research: x402 payment-agent workflows for autonomous agent commerce, with paid APIs, MCP tools, guardrails, observability, and evals.</p>
-        <p>Also built <strong>Visible Edge</strong>, an AI-assisted CMMC/compliance intelligence workflow, and <strong>Centinela Intel</strong>, a side project that automates roughly <span class="pill">95%</span> of LATAM OSINT intelligence gathering. Prior <strong>500 Startups</strong> founder with exit via acquisition of the technology and team.</p>
-        <p>Before startups, I spent 7 years in Iraq and related high-threat environments with State Dept, DoD, and Triple Canopy, after serving as a USMC infantry leader. That background makes me unusually useful in AI, crypto, defense, trading, compliance, and operational systems where mistakes matter.</p>
-      </div>
-      <div class="stats">
-        <div class="stat"><span class="num">$250K+</span><span class="lbl">ARR · founder &amp; CEO</span></div>
-        <div class="stat"><span class="num">5,000+</span><span class="lbl">Personnel directed · multinational ops</span></div>
-        <div class="stat"><span class="num">$100M</span><span class="lbl">U.S. govt equipment managed</span></div>
-        <div class="stat"><span class="num">500 SU</span><span class="lbl">Alum · prior exit</span></div>
-        <div class="stat"><span class="num">26+ yrs</span><span class="lbl">Markets · multi-cycle operator</span></div>
-        <div class="stat"><span class="num">25+</span><span class="lbl">Public builds shipped</span></div>
-      </div>
-    </div>
-  </section>
+      <p>
+        <strong>Founder &amp; CEO with multi-cycle operating experience</strong> across AI, fintech, and
+        high-stakes physical operations. I lead by building — agentic systems, trading infrastructure,
+        AI-native businesses — and have run organizations from solo startups to multinational programs
+        with thousands of personnel.
+      </p>
+      <p>
+        Built <strong>Pollinate Trading</strong> to $250K+ ARR as founder, owning product, P&amp;L,
+        customer base, and infrastructure end to end. Now founding <strong>MAKO</strong> at
+        Pollinate Research: an x402 trust layer for the agent economy — verifier, pulse, pricing,
+        and reputation endpoints for autonomous agent commerce, callable as paid APIs and MCP tools.
+      </p>
+      <p>
+        Prior <strong>500 Startups</strong> founder with exit via acquisition. Decade in crypto / web3 / DeFi,
+        including operating a hedge fund across multiple market cycles. Earlier career: directed
+        5,000+ personnel and $100M in U.S. government equipment across protective operations in
+        Iraq, Haiti, and Israel. State Department high-threat certifications; CPP through
+        ASIS International; USMC infantry leader.
+      </p>
+    </section>
 
-  <section id="focus">
-    <div class="section-head">
+    <!-- ============ NOW ============ -->
+    <section>
+      <h2>Now — recent shipping log</h2>
+      <div class="log">
+        <div class="row">
+          <span class="date">2026-05-18</span>
+          <span><span class="tag">ship</span>integrated <a href="https://github.com/ChrisDover/gbrain" target="_blank" rel="noopener">gbrain</a> into MAKO's agent orchestration loop</span>
+        </div>
+        <div class="row">
+          <span class="date">2026-05-14</span>
+          <span><span class="tag">live</span>released <a href="https://github.com/ChrisDover/mako-mcp-server" target="_blank" rel="noopener">mako-mcp-server</a> — paid x402 endpoints as MCP tools</span>
+        </div>
+        <div class="row">
+          <span class="date">2026-05-13</span>
+          <span><span class="tag">live</span><a href="https://github.com/ChrisDover/mako-verifier" target="_blank" rel="noopener">mako-verifier</a> deployed to mako.pollinateresearch.com</span>
+        </div>
+        <div class="row">
+          <span class="date">2026-05-07</span>
+          <span><span class="tag">ship</span><a href="https://github.com/ChrisDover/outlive-engine" target="_blank" rel="noopener">outlive-engine</a> v0.x — open-source longevity protocol platform</span>
+        </div>
+        <div class="row">
+          <span class="date">2026-05-01</span>
+          <span><span class="tag">ship</span><a href="https://github.com/ChrisDover/visible-edge" target="_blank" rel="noopener">visible-edge</a> — CMMC compliance lead-gen microsite</span>
+        </div>
+        <div class="row">
+          <span class="date">2026-04-23</span>
+          <span><span class="tag">ship</span><a href="https://github.com/ChrisDover/Silo" target="_blank" rel="noopener">Silo</a> — session-locked AI coding terminal · one project · no drift</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ OPERATING FOCUS ============ -->
+    <section>
       <h2>Operating focus</h2>
-      <span class="meta"><span class="num">03 /</span> WHERE I BUILD</span>
-    </div>
+      <ol class="num">
+        <li>
+          <strong>AI strategy + deployment.</strong>
+          <p>
+            Turning AI capability into business outcomes. The work that sits between research
+            breakthroughs and revenue — capability mapping, deployment architecture, change
+            management, measurement frameworks, and the operational discipline to ship AI into
+            production environments where it actually moves the P&amp;L.
+          </p>
+        </li>
+        <li>
+          <strong>AI-native operations.</strong>
+          <p>
+            Building organizations where AI is a first-class operator. Designing teams,
+            workflows, and infrastructure that assume agents in the loop from day one —
+            reorganizing how decisions get made, how work gets routed, and how humans and
+            AI systems share responsibility for outcomes.
+          </p>
+        </li>
+      </ol>
+    </section>
 
-    <div class="focus-grid">
-      <article class="focus-card">
-        <div class="focus-num">01</div>
-        <h3>Production agent systems</h3>
-        <p>Multi-step agent workflows with bounded responsibilities, tool/API orchestration, auditable state, structured outputs, human escalation, and eval loops. I care less about clever prompts and more about whether the system can recover, explain itself, and produce useful work every day.</p>
-      </article>
-
-      <article class="focus-card">
-        <div class="focus-num">02</div>
-        <h3>AI-native shipping</h3>
-        <p>Daily driver across Claude Code, Codex, Cursor, Gemini, and custom tooling. I use agents for research, implementation, review, test generation, refactors, and docs, then build the missing workflow glue when the tools fall short. The goal is velocity with judgment, not more code for its own sake.</p>
-      </article>
-    </div>
-  </section>
-
-  <section id="builds">
-    <div class="section-head">
+    <!-- ============ SELECTED WORK ============ -->
+    <section>
       <h2>Selected work</h2>
-      <span class="meta"><span class="num">04 /</span> BUILT &amp; SHIPPED</span>
-    </div>
+      <table class="t wide">
+        <thead>
+          <tr><th>Project</th><th>What it is</th><th>Stack</th><th>Status</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><a href="https://pollinateresearch.com" target="_blank" rel="noopener">MAKO</a></td>
+            <td>Trust layer for agent commerce on Base — Verifier, Pulse, Pricing Index, Reputation, all callable as paid x402 endpoints. Drop-in MCP server for Claude Desktop, Cline, any MCP-native agent.</td>
+            <td>TS · Base · x402 · MCP</td>
+            <td>live · 2026</td>
+          </tr>
+          <tr>
+            <td><a href="https://pollinatetrading.com" target="_blank" rel="noopener">Pollinate Trading</a></td>
+            <td>Solo-built fintech platform for systematic traders. Market-regime analysis, signal systems, risk dashboards, automated alerts, backtesting, subscriber workflows. $250K+ ARR.</td>
+            <td>Python · Next.js · Postgres · AWS</td>
+            <td>live · 2022—</td>
+          </tr>
+          <tr>
+            <td><a href="https://pollinatetrading.com/builds" target="_blank" rel="noopener">AI Build Lab</a></td>
+            <td>Community of systematic traders shipping AI-built strategies 2× per week. Public /builds feed: regime filters, Monte Carlo prompts, scanners, position sizers, model bake-offs.</td>
+            <td>Claude · Codex · Slack</td>
+            <td>live · 2025—</td>
+          </tr>
+          <tr>
+            <td><a href="https://github.com/ChrisDover/outlive-engine" target="_blank" rel="noopener">Outlive Engine</a></td>
+            <td>Open-source longevity protocol platform. Your health data, your models, your hardware — no SaaS in the loop on your biology.</td>
+            <td>Python · OSS</td>
+            <td>live · 2024—</td>
+          </tr>
+          <tr>
+            <td><a href="https://github.com/ChrisDover/Silo" target="_blank" rel="noopener">Silo</a></td>
+            <td>Super-light, session-locked AI coding terminal. One project. One tool. No drift.</td>
+            <td>JavaScript · Terminal</td>
+            <td>live · 2026</td>
+          </tr>
+          <tr>
+            <td><a href="https://github.com/ChrisDover/visible-edge" target="_blank" rel="noopener">Visible Edge</a></td>
+            <td>Pitch microsite for a CMMC compliance lead-generation system targeting defense contractors. End-to-end: copy, design, deploy.</td>
+            <td>TS · Next.js</td>
+            <td>live · 2026</td>
+          </tr>
+          <tr>
+            <td><a href="https://github.com/ChrisDover/geneology-site" target="_blank" rel="noopener">608 Years</a></td>
+            <td>Interactive family genealogy site — 608+ years, 83 ancestors, 6 countries. Built to learn the data-viz stack I'd been avoiding.</td>
+            <td>TS · D3 · SSG</td>
+            <td>live · 2026</td>
+          </tr>
+          <tr>
+            <td><a href="https://github.com/ChrisDover/predictions-2026" target="_blank" rel="noopener">Predictions 2026</a></td>
+            <td>Live tracker for "10 Predictions for 2026 That Nobody Is Pricing In." Public scorecard, updated as the year plays out.</td>
+            <td>HTML</td>
+            <td>live · 2026</td>
+          </tr>
+          <tr>
+            <td>Centinela Intel</td>
+            <td>~95% automation of OSINT intelligence gathering for LATAM-focused corporate security and EP teams. Noisy open-source signals → structured reports.</td>
+            <td>AI agents · OSINT</td>
+            <td>private</td>
+          </tr>
+          <tr>
+            <td>Geniusly</td>
+            <td>Predictive risk analytics for transportation. Selected for 500 Startups; exited via acquisition of the technology and team.</td>
+            <td>Predictive analytics</td>
+            <td>acquired · 2014</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
 
-    <div class="featured">
+    <!-- ============ TRADING SYSTEMS ============ -->
+    <section>
+      <h2>Trading systems</h2>
+      <p class="muted">
+        26+ years in markets. Systems designed, coded, and live-traded across equities, futures,
+        FX, crypto, and bonds. Same signals shared into the Pollinate Trading community of paying
+        subscribers.
+      </p>
+      <table class="t wide">
+        <thead>
+          <tr><th>System</th><th>What it does</th><th>Style</th><th>Status</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>VoltAIc</td>
+            <td>Machine-learning market-regime classifier. Rotates between TQQQ, SQQQ, and gold based on real-time regime detection — long when risk-on, inverse when it flips, gold when it sees defense.</td>
+            <td>ML · regime</td>
+            <td>live</td>
+          </tr>
+          <tr>
+            <td>TrendLock</td>
+            <td>Three engines, one system. TrendLock momentum captures sustained trends, Monthly Flip exploits calendar effects, Crisis Hunter buys panic. Stacked uncorrelated edges.</td>
+            <td>Momentum · multi-engine</td>
+            <td>live</td>
+          </tr>
+          <tr>
+            <td>SwingHunter</td>
+            <td>Multi-asset mean-reversion across 23 3× leveraged ETFs. Hunts statistically extreme dislocations and fades them with strict position sizing and stop discipline.</td>
+            <td>Mean reversion</td>
+            <td>live</td>
+          </tr>
+          <tr>
+            <td>Crypto Momentum</td>
+            <td>Systematic momentum across the major-coin universe. Trend-following with regime-aware sizing, built to survive crypto winters and capture the spikes when they come.</td>
+            <td>Crypto · momentum</td>
+            <td>live</td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="muted" style="font-size: 12.5px;">
+        Built end-to-end alone: data ingest, backtest engine, signal generator, risk dashboards,
+        alert pipeline. Trading involves substantial risk; nothing here is investment advice.
+      </p>
+    </section>
 
-      <article class="build-card feature">
-        <div class="b-meta">
-          <span>MAKO · 2026</span>
-          <span class="live-pill">live</span>
-        </div>
-        <h3>MAKO: x402 payment-agent workflows</h3>
-        <p class="b-blurb">
-          Verifier · Pulse · Pricing Index · Reputation Score — all callable as paid x402 endpoints. A production-oriented trust layer for agent commerce: payment logic, tool calls, workflow state, guardrails, observability, evals, and MCP access for Claude Desktop, Cline, and MCP-native agents. Live at <span class="mono" style="font-size: 13.5px;">mako.pollinateresearch.com</span>.
-        </p>
-        <div class="b-stack">
-          <span>TypeScript</span><span>Base</span><span>x402</span><span>MCP</span><span>ERC-8004</span><span>USDC</span>
-        </div>
-        <div class="b-links">
-          <a href="https://github.com/ChrisDover/mako-verifier" target="_blank" rel="noopener">→ mako-verifier</a>
-          <a href="https://github.com/ChrisDover/mako-mcp-server" target="_blank" rel="noopener">→ mako-mcp-server</a>
-          <a href="https://pollinateresearch.com" target="_blank" rel="noopener">→ pollinateresearch.com</a>
-        </div>
-      </article>
+    <!-- ============ PUBLIC REPOSITORIES ============ -->
+    <section>
+      <h2>Public repositories · github.com/chrisdover</h2>
+      <table class="t wide">
+        <thead>
+          <tr><th>Repo</th><th>Description</th><th>Lang</th><th>Stars</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><a href="https://github.com/ChrisDover/mako-verifier" target="_blank" rel="noopener">mako-verifier</a></td>
+            <td>Trust layer for agent commerce on Base. Verifier + Pulse + Pricing Index + Reputation, all callable as paid x402 endpoints.</td>
+            <td>TypeScript</td>
+            <td>★ 0</td>
+          </tr>
+          <tr>
+            <td><a href="https://github.com/ChrisDover/mako-mcp-server" target="_blank" rel="noopener">mako-mcp-server</a></td>
+            <td>MAKO's paid x402 endpoints as installable MCP tools. Drop-in for Claude Desktop, Cline, any MCP-native agent.</td>
+            <td>TypeScript</td>
+            <td>★ 0</td>
+          </tr>
+          <tr>
+            <td><a href="https://github.com/ChrisDover/outlive-engine" target="_blank" rel="noopener">outlive-engine</a></td>
+            <td>Open-source longevity protocol platform. Your health data, your models, your hardware.</td>
+            <td>Python</td>
+            <td>★ 10</td>
+          </tr>
+          <tr>
+            <td><a href="https://github.com/ChrisDover/Silo" target="_blank" rel="noopener">Silo</a></td>
+            <td>Super-light session-locked AI coding terminal. One project. One tool. No drift.</td>
+            <td>JavaScript</td>
+            <td>★ 0</td>
+          </tr>
+          <tr>
+            <td><a href="https://github.com/ChrisDover/visible-edge" target="_blank" rel="noopener">visible-edge</a></td>
+            <td>Pitch microsite for a CMMC compliance lead-generation system.</td>
+            <td>TypeScript</td>
+            <td>★ 0</td>
+          </tr>
+          <tr>
+            <td><a href="https://github.com/ChrisDover/geneology-site" target="_blank" rel="noopener">geneology-site</a></td>
+            <td>Interactive family genealogy website — 608+ years, 83 ancestors, 6 countries.</td>
+            <td>TypeScript</td>
+            <td>★ 0</td>
+          </tr>
+          <tr>
+            <td><a href="https://github.com/ChrisDover/predictions-2026" target="_blank" rel="noopener">predictions-2026</a></td>
+            <td>Live tracker for 10 Predictions for 2026 That Nobody Is Pricing In.</td>
+            <td>HTML</td>
+            <td>★ 0</td>
+          </tr>
+          <tr>
+            <td><a href="https://github.com/ChrisDover/pollinate-lab-mlcourse" target="_blank" rel="noopener">pollinate-lab-mlcourse</a></td>
+            <td>Using machine learning to build a predictive stock trading model.</td>
+            <td>—</td>
+            <td>★ 0</td>
+          </tr>
+          <tr>
+            <td><a href="https://github.com/ChrisDover/ChrisDover" target="_blank" rel="noopener">ChrisDover</a></td>
+            <td>GitHub profile readme.</td>
+            <td>—</td>
+            <td>★ 0</td>
+          </tr>
+          <tr>
+            <td><a href="https://github.com/ChrisDover/alien" target="_blank" rel="noopener">alien</a></td>
+            <td>Early experiment from 2014.</td>
+            <td>—</td>
+            <td>★ 0</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
 
-      <article class="build-card">
-        <div class="b-meta">
-          <span>2022 — present</span>
-          <span class="b-tag">Fintech · SaaS</span>
-        </div>
-        <h3>Pollinate Trading</h3>
-        <p class="b-blurb">
-          Solo-built fintech platform for systematic traders, grown to <strong>$250K+ ARR</strong>. Market-regime analysis, signal systems, risk dashboards, automated alerts, backtesting, and subscriber workflows — owned end-to-end.
-        </p>
-        <div class="b-stack">
-          <span>Python</span><span>Next.js</span><span>Postgres</span><span>AWS</span>
-        </div>
-        <div class="b-links">
-          <a href="https://pollinatetrading.com" target="_blank" rel="noopener">→ pollinatetrading.com</a>
-        </div>
-      </article>
-
-      <article class="build-card">
-        <div class="b-meta">
-          <span>2025 — present</span>
-          <span class="b-tag">Build feed</span>
-        </div>
-        <h3>AI Build Lab — /builds</h3>
-        <p class="b-blurb">
-          Community of systematic traders shipping AI-built strategies 2× per week. Public /builds feed: regime filters, Monte Carlo prompts, scanners, position sizers, model bake-offs. Real systems, walk-forward validated.
-        </p>
-        <div class="b-stack">
-          <span>Claude</span><span>Codex</span><span>Slack</span><span>Backtesting</span>
-        </div>
-        <div class="b-links">
-          <a href="https://pollinatetrading.com/builds" target="_blank" rel="noopener">→ pollinatetrading.com/builds</a>
-        </div>
-      </article>
-
-      <article class="build-card">
-        <div class="b-meta">
-          <span>2024 — present</span>
-          <span class="b-tag">Open source</span>
-        </div>
-        <h3>Outlive Engine</h3>
-        <p class="b-blurb">
-          Open-source longevity protocol platform. Your health data, your models, your hardware — a framework for personalized longevity protocols that doesn't ship your biology to a SaaS.
-        </p>
-        <div class="b-stack">
-          <span>Python</span><span>OSS</span><span>10★</span>
-        </div>
-        <div class="b-links">
-          <a href="https://github.com/ChrisDover/outlive-engine" target="_blank" rel="noopener">→ outlive-engine</a>
-        </div>
-      </article>
-
-      <article class="build-card">
-        <div class="b-meta">
-          <span>2026</span>
-          <span class="b-tag">Dev tool</span>
-        </div>
-        <h3>Silo</h3>
-        <p class="b-blurb">
-          Super-light, session-locked AI coding terminal. One project. One tool. No drift. Built because every "AI IDE" I tried kept losing the thread halfway through a feature.
-        </p>
-        <div class="b-stack">
-          <span>JavaScript</span><span>Terminal</span><span>Agentic</span>
-        </div>
-        <div class="b-links">
-          <a href="https://github.com/ChrisDover/Silo" target="_blank" rel="noopener">→ Silo on GitHub</a>
-        </div>
-      </article>
-
-      <article class="build-card">
-        <div class="b-meta">
-          <span>2026</span>
-          <span class="b-tag">Microsite</span>
-        </div>
-        <h3>Visible Edge</h3>
-        <p class="b-blurb">
-          AI-assisted CMMC compliance intelligence workflow for defense contractors: federal data ingest, enrichment, opportunity scoring, AI-generated dossiers/openers, and a prioritized sales queue. Built to turn messy public data into operator-ready actions.
-        </p>
-        <div class="b-stack">
-          <span>TypeScript</span><span>Next.js</span>
-        </div>
-        <div class="b-links">
-          <a href="https://github.com/ChrisDover/visible-edge" target="_blank" rel="noopener">→ visible-edge</a>
-        </div>
-      </article>
-
-      <article class="build-card">
-        <div class="b-meta">
-          <span>2026</span>
-          <span class="b-tag">Interactive</span>
-        </div>
-        <h3>Genealogy Data Explorer</h3>
-        <p class="b-blurb">
-          Interactive family genealogy site — 608+ years, 83 ancestors, 6 countries. Built to learn the data-viz stack I'd been avoiding.
-        </p>
-        <div class="b-stack">
-          <span>TypeScript</span><span>D3</span><span>SSG</span>
-        </div>
-        <div class="b-links">
-          <a href="https://github.com/ChrisDover/geneology-site" target="_blank" rel="noopener">→ geneology-site</a>
-        </div>
-      </article>
-
-      <article class="build-card">
-        <div class="b-meta">
-          <span>2026</span>
-          <span class="b-tag">Live tracker</span>
-        </div>
-        <h3>Predictions 2026</h3>
-        <p class="b-blurb">
-          Live tracker for "10 Predictions for 2026 That Nobody Is Pricing In." Public scorecard, updated as the year plays out.
-        </p>
-        <div class="b-stack">
-          <span>HTML</span><span>Tracker</span>
-        </div>
-        <div class="b-links">
-          <a href="https://github.com/ChrisDover/predictions-2026" target="_blank" rel="noopener">→ predictions-2026</a>
-        </div>
-      </article>
-
-      <article class="build-card">
-        <div class="b-meta">
-          <span>Side project</span>
-          <span class="b-tag">OSINT</span>
-        </div>
-        <h3>Centinela Intel</h3>
-        <p class="b-blurb">
-          ~95% automation of OSINT intelligence gathering for LATAM-focused corporate security and EP teams. Turns noisy open-source signals into structured reports security teams can act on.
-        </p>
-        <div class="b-stack">
-          <span>AI agents</span><span>OSINT</span><span>LATAM</span>
-        </div>
-        <div class="b-links">
-          <span style="color: var(--ink-mute); font-size: 12px; font-family: var(--mono);">— private, case studies on request</span>
-        </div>
-      </article>
-
-      <article class="build-card">
-        <div class="b-meta">
-          <span>2013 — 14</span>
-          <span class="b-tag">Exit</span>
-        </div>
-        <h3>Geniusly · 500 Startups</h3>
-        <p class="b-blurb">
-          Predictive risk analytics startup for transportation. Selected for 500 Startups; exited via acquisition of the technology and team.
-        </p>
-        <div class="b-stack">
-          <span>Predictive analytics</span><span>500 SU '14</span>
-        </div>
-        <div class="b-links">
-          <span style="color: var(--ink-mute); font-size: 12px; font-family: var(--mono);">— acquired</span>
-        </div>
-      </article>
-
-    </div>
-  </section>
-
-  <section id="systems">
-    <div class="section-head">
-      <h2>Systems I Build</h2>
-      <span class="meta"><span class="num">05 /</span> PATTERN</span>
-    </div>
-
-    <p class="section-lede">
-      The through-line is simple: connect messy real-world systems, extract signal, decide what matters, and deliver action to the person who owns the outcome. In trading, compliance, security intelligence, and agent commerce, the useful system is the one that survives contact with reality.
-    </p>
-
-    <div class="featured">
-
-      <article class="build-card">
-        <div class="b-meta">
-          <span>Architecture</span>
-          <span class="b-tag">Agent systems</span>
-        </div>
-        <h3>Orchestration, Guardrails, Evals</h3>
-        <p class="b-blurb">
-          I design agents as bounded workers with explicit tools, state, permissions, confidence thresholds, error paths, and traceable outputs. The goal is not to trust the model. The goal is to build a system where the model can be useful without being silently dangerous.
-        </p>
-        <div class="b-stack">
-          <span>Tool use</span><span>State</span><span>Review loops</span><span>Escalation</span>
-        </div>
-      </article>
-
-      <article class="build-card">
-        <div class="b-meta">
-          <span>Workflow</span>
-          <span class="b-tag">AI-native dev</span>
-        </div>
-        <h3>100x Engineering Workflow</h3>
-        <p class="b-blurb">
-          Claude Code, Codex, Cursor, Gemini, and custom scripts are part of the build loop. I use agents to explore, implement, review, test, document, and compare approaches, then keep the judgment layer human. The system changes as better tools ship.
-        </p>
-        <div class="b-stack">
-          <span>Claude Code</span><span>Codex</span><span>Cursor</span><span>Gemini</span>
-        </div>
-      </article>
-
-      <article class="build-card">
-        <div class="b-meta">
-          <span>Markets</span>
-          <span class="b-tag">Trading</span>
-        </div>
-        <h3>Systematic Trading Infrastructure</h3>
-        <p class="b-blurb">
-          Data ingest, backtesting, market-regime detection, signal generation, risk dashboards, alert pipelines, and subscriber workflows. 26+ years in markets across equities, futures, FX, crypto, and bonds.
-        </p>
-        <div class="b-stack">
-          <span>Python</span><span>Backtesting</span><span>Risk</span><span>Signals</span>
-        </div>
-      </article>
-
-      <article class="build-card">
-        <div class="b-meta">
-          <span>Domain</span>
-          <span class="b-tag">Defense / Ops</span>
-        </div>
-        <h3>High-Stakes Operational Software</h3>
-        <p class="b-blurb">
-          The Iraq/State Dept/DoD background shows up in the software: clear escalation paths, operator-first UX, audit trails, source confidence, and systems that tell humans what to do next instead of dumping more dashboards on them.
-        </p>
-        <div class="b-stack">
-          <span>OSINT</span><span>Compliance</span><span>Security</span><span>Human-in-loop</span>
-        </div>
-      </article>
-
-    </div>
-
-    <p class="section-note">
-      The strongest fit: founding engineer, Head of Agentic Systems, AI systems lead, FDE, or early technical hire at companies building agents for finance, defense, compliance, crypto, trading, or real-world operations.
-    </p>
-  </section>
-
-  <section id="repos">
-    <div class="section-head">
-      <h2>Selected repositories</h2>
-      <span class="meta"><span class="num">06 /</span> PUBLIC PROOF · github.com/chrisdover</span>
-    </div>
-
-    <div class="repos-wrap">
-      <div class="repos-head">
-        <span>repo</span>
-        <span>description</span>
-        <span>lang</span>
-        <span>updated</span>
-        <span style="text-align: right;">stars</span>
-      </div>
-
-      <!-- Strongest proof first; full GitHub profile remains linked in contact. -->
-      <div class="repo-row">
-        <a class="repo-name" href="https://github.com/ChrisDover/mako-verifier" target="_blank" rel="noopener">mako-verifier</a>
-        <div class="repo-desc">Trust layer for agent commerce on Base. Verifier + Pulse + Pricing Index + Reputation Score, all callable as paid x402 endpoints.</div>
-        <div class="repo-lang"><span class="lang-dot typescript"></span>TypeScript</div>
-        <div class="repo-date">2026-05-13</div>
-        <div class="repo-stars">★ 0</div>
-      </div>
-
-      <div class="repo-row">
-        <a class="repo-name" href="https://github.com/ChrisDover/mako-mcp-server" target="_blank" rel="noopener">mako-mcp-server</a>
-        <div class="repo-desc">MAKO's paid x402 endpoints (route, pulse, pricing, reputation, verify) as installable MCP tools. Drop-in for Claude Desktop, Cline, and any MCP-native agent.</div>
-        <div class="repo-lang"><span class="lang-dot typescript"></span>TypeScript</div>
-        <div class="repo-date">2026-05-14</div>
-        <div class="repo-stars">★ 0</div>
-      </div>
-
-      <div class="repo-row">
-        <a class="repo-name" href="https://github.com/ChrisDover/outlive-engine" target="_blank" rel="noopener">outlive-engine</a>
-        <div class="repo-desc">Open-source longevity protocol platform. Your health data, your models, your hardware.</div>
-        <div class="repo-lang"><span class="lang-dot python"></span>Python</div>
-        <div class="repo-date">2026-05-07</div>
-        <div class="repo-stars">★ 10</div>
-      </div>
-
-      <div class="repo-row">
-        <a class="repo-name" href="https://github.com/ChrisDover/Silo" target="_blank" rel="noopener">Silo</a>
-        <div class="repo-desc">Super light session-locked AI coding terminal. One project. One tool. No drift.</div>
-        <div class="repo-lang"><span class="lang-dot javascript"></span>JavaScript</div>
-        <div class="repo-date">2026-04-23</div>
-        <div class="repo-stars">★ 0</div>
-      </div>
-
-      <div class="repo-row">
-        <a class="repo-name" href="https://github.com/ChrisDover/visible-edge" target="_blank" rel="noopener">visible-edge</a>
-        <div class="repo-desc">Visible Edge — pitch microsite for a CMMC compliance lead-generation system.</div>
-        <div class="repo-lang"><span class="lang-dot typescript"></span>TypeScript</div>
-        <div class="repo-date">2026-05-01</div>
-        <div class="repo-stars">★ 0</div>
-      </div>
-
-      <div class="repo-row">
-        <a class="repo-name" href="https://github.com/ChrisDover/geneology-site" target="_blank" rel="noopener">geneology-site</a>
-        <div class="repo-desc">Interactive family genealogy website — 608+ years, 83 ancestors, 6 countries.</div>
-        <div class="repo-lang"><span class="lang-dot typescript"></span>TypeScript</div>
-        <div class="repo-date">2026-03-20</div>
-        <div class="repo-stars">★ 0</div>
-      </div>
-
-      <div class="repo-row">
-        <a class="repo-name" href="https://github.com/ChrisDover/predictions-2026" target="_blank" rel="noopener">predictions-2026</a>
-        <div class="repo-desc">Live tracker for 10 Predictions for 2026 That Nobody Is Pricing In.</div>
-        <div class="repo-lang"><span class="lang-dot html"></span>HTML</div>
-        <div class="repo-date">2026-03-19</div>
-        <div class="repo-stars">★ 0</div>
-      </div>
-
-      <div class="repo-row">
-        <a class="repo-name" href="https://github.com/ChrisDover/pollinate-lab-mlcourse" target="_blank" rel="noopener">pollinate-lab-mlcourse</a>
-        <div class="repo-desc">Using machine learning to build a predictive stock trading model.</div>
-        <div class="repo-lang"><span class="lang-dot"></span>—</div>
-        <div class="repo-date">2024-05-29</div>
-        <div class="repo-stars">★ 0</div>
-      </div>
-
-      <div class="repo-row">
-        <a class="repo-name" href="https://github.com/ChrisDover/ChrisDover" target="_blank" rel="noopener">ChrisDover</a>
-        <div class="repo-desc">GitHub profile readme.</div>
-        <div class="repo-lang"><span class="lang-dot"></span>—</div>
-        <div class="repo-date">2026-05-07</div>
-        <div class="repo-stars">★ 0</div>
-      </div>
-
-      <div class="repo-row">
-        <a class="repo-name" href="https://github.com/ChrisDover/alien" target="_blank" rel="noopener">alien</a>
-        <div class="repo-desc">Early experiment from 2014.</div>
-        <div class="repo-lang"><span class="lang-dot"></span>—</div>
-        <div class="repo-date">2014-05-29</div>
-        <div class="repo-stars">★ 0</div>
-      </div>
-
-      <!-- Forks / curated -->
-      <div class="repo-row">
-        <a class="repo-name" href="https://github.com/ChrisDover/gbrain" target="_blank" rel="noopener">gbrain <span class="repo-fork">fork</span></a>
-        <div class="repo-desc">Garry's opinionated OpenClaw/Hermes Agent brain — patched and integrated with MAKO.</div>
-        <div class="repo-lang"><span class="lang-dot"></span>—</div>
-        <div class="repo-date">2026-05-18</div>
-        <div class="repo-stars">★ 0</div>
-      </div>
-
-      <div class="repo-row">
-        <a class="repo-name" href="https://github.com/ChrisDover/x402" target="_blank" rel="noopener">x402 <span class="repo-fork">fork</span></a>
-        <div class="repo-desc">A payments protocol for the internet. Built on HTTP. Tracking upstream for MAKO.</div>
-        <div class="repo-lang"><span class="lang-dot"></span>—</div>
-        <div class="repo-date">2026-05-07</div>
-        <div class="repo-stars">★ 0</div>
-      </div>
-
-      <div class="repo-row">
-        <a class="repo-name" href="https://github.com/ChrisDover/a2a-x402" target="_blank" rel="noopener">a2a-x402 <span class="repo-fork">fork</span></a>
-        <div class="repo-desc">A2A x402 Extension — brings crypto payments to the Agent-to-Agent protocol.</div>
-        <div class="repo-lang"><span class="lang-dot"></span>—</div>
-        <div class="repo-date">2026-05-07</div>
-        <div class="repo-stars">★ 0</div>
-      </div>
-
-      <div class="repo-row">
-        <a class="repo-name" href="https://github.com/ChrisDover/awesome-x402" target="_blank" rel="noopener">awesome-x402 <span class="repo-fork">fork</span></a>
-        <div class="repo-desc">Curated list of x402 resources — HTTP 402 protocol, SDKs, facilitators, MCP integration.</div>
-        <div class="repo-lang"><span class="lang-dot"></span>—</div>
-        <div class="repo-date">2026-05-07</div>
-        <div class="repo-stars">★ 0</div>
-      </div>
-
-      <div class="repo-row">
-        <a class="repo-name" href="https://github.com/ChrisDover/awesome-x402-1" target="_blank" rel="noopener">awesome-x402-1 <span class="repo-fork">fork</span></a>
-        <div class="repo-desc">Second curated x402 resource list.</div>
-        <div class="repo-lang"><span class="lang-dot"></span>—</div>
-        <div class="repo-date">2026-05-14</div>
-        <div class="repo-stars">★ 0</div>
-      </div>
-
-      <div class="repo-row">
-        <a class="repo-name" href="https://github.com/ChrisDover/trading-momentum-transformer" target="_blank" rel="noopener">trading-momentum-transformer <span class="repo-fork">fork</span></a>
-        <div class="repo-desc">Reference implementation for "Trading with the Momentum Transformer" (arXiv 2112.08534).</div>
-        <div class="repo-lang"><span class="lang-dot python"></span>Python</div>
-        <div class="repo-date">2026-05-07</div>
-        <div class="repo-stars">★ 3</div>
-      </div>
-
-      <div class="repo-row">
-        <a class="repo-name" href="https://github.com/ChrisDover/Deep-Trading" target="_blank" rel="noopener">Deep-Trading <span class="repo-fork">fork</span></a>
-        <div class="repo-desc">Algorithmic trading with deep learning experiments.</div>
-        <div class="repo-lang"><span class="lang-dot openedge-abl"></span>OpenEdge ABL</div>
-        <div class="repo-date">2026-05-07</div>
-        <div class="repo-stars">★ 1</div>
-      </div>
-
-      <div class="repo-row">
-        <a class="repo-name" href="https://github.com/ChrisDover/stockprediction" target="_blank" rel="noopener">stockprediction <span class="repo-fork">fork</span></a>
-        <div class="repo-desc">Stock prediction with TensorFlow — Medium-article companion code.</div>
-        <div class="repo-lang"><span class="lang-dot python"></span>Python</div>
-        <div class="repo-date">2026-05-07</div>
-        <div class="repo-stars">★ 1</div>
-      </div>
-
-      <div class="repo-row">
-        <a class="repo-name" href="https://github.com/ChrisDover/airllm" target="_blank" rel="noopener">airllm <span class="repo-fork">fork</span></a>
-        <div class="repo-desc">AirLLM — 70B inference on a single 4GB GPU.</div>
-        <div class="repo-lang"><span class="lang-dot"></span>—</div>
-        <div class="repo-date">2026-05-07</div>
-        <div class="repo-stars">★ 0</div>
-      </div>
-
-      <div class="repo-row">
-        <a class="repo-name" href="https://github.com/ChrisDover/quant-trading" target="_blank" rel="noopener">quant-trading <span class="repo-fork">fork</span></a>
-        <div class="repo-desc">Python quant strategies — VIX, pattern recognition, Monte Carlo, options straddle, pair trading, RSI, Bollinger, SAR.</div>
-        <div class="repo-lang"><span class="lang-dot"></span>—</div>
-        <div class="repo-date">2026-05-07</div>
-        <div class="repo-stars">★ 0</div>
-      </div>
-
-      <div class="repo-row">
-        <a class="repo-name" href="https://github.com/ChrisDover/WorldQuant_alpha101_code" target="_blank" rel="noopener">WorldQuant_alpha101_code <span class="repo-fork">fork</span></a>
-        <div class="repo-desc">Code for the Quantigic 101 Formulaic Alphas.</div>
-        <div class="repo-lang"><span class="lang-dot"></span>—</div>
-        <div class="repo-date">2026-05-07</div>
-        <div class="repo-stars">★ 0</div>
-      </div>
-
-      <div class="repo-row">
-        <a class="repo-name" href="https://github.com/ChrisDover/AutoTrader-fx" target="_blank" rel="noopener">AutoTrader-fx <span class="repo-fork">fork</span></a>
-        <div class="repo-desc">Python platform for automated trading — backtesting, optimisation, live trading.</div>
-        <div class="repo-lang"><span class="lang-dot"></span>—</div>
-        <div class="repo-date">2026-05-07</div>
-        <div class="repo-stars">★ 0</div>
-      </div>
-
-      <div class="repo-row">
-        <a class="repo-name" href="https://github.com/ChrisDover/TTR" target="_blank" rel="noopener">TTR <span class="repo-fork">fork</span></a>
-        <div class="repo-desc">Technical analysis and trading-rule construction in R.</div>
-        <div class="repo-lang"><span class="lang-dot r"></span>R</div>
-        <div class="repo-date">2026-05-07</div>
-        <div class="repo-stars">★ 0</div>
-      </div>
-
-      <div class="repo-row">
-        <a class="repo-name" href="https://github.com/ChrisDover/auquan-toolbox-python" target="_blank" rel="noopener">auquan-toolbox-python <span class="repo-fork">fork</span></a>
-        <div class="repo-desc">Backtesting toolbox for trading strategies.</div>
-        <div class="repo-lang"><span class="lang-dot python"></span>Python</div>
-        <div class="repo-date">2026-05-07</div>
-        <div class="repo-stars">★ 0</div>
-      </div>
-
-      <div class="repo-row">
-        <a class="repo-name" href="https://github.com/ChrisDover/awesome-quant" target="_blank" rel="noopener">awesome-quant <span class="repo-fork">fork</span></a>
-        <div class="repo-desc">Curated libraries, packages, and resources for quantitative finance.</div>
-        <div class="repo-lang"><span class="lang-dot"></span>—</div>
-        <div class="repo-date">2026-05-07</div>
-        <div class="repo-stars">★ 0</div>
-      </div>
-
-    </div>
-  </section>
-
-  <section id="career">
-    <div class="section-head">
+    <!-- ============ CAREER ============ -->
+    <section>
       <h2>Career</h2>
-      <span class="meta"><span class="num">07 /</span> PATH</span>
-    </div>
+      <div class="facts">
+        <dl>
+          <dt>2026 — now</dt>
+          <dd><strong>Founder</strong> · Pollinate Research · Remote. Building MAKO and x402 payment-agent workflows on crypto-native rails. Agent primitives for tool orchestration, API integrations, workflow state, payment logic, guardrails, observability, eval.</dd>
 
-    <div class="roles">
-      <div class="role">
-        <div class="role-year">2026 — now</div>
-        <div class="role-body">
-          <h4>Founder &amp; Builder</h4>
-          <div class="role-org">Pollinate Research · Remote</div>
-          <p>Building MAKO and x402 payment-agent workflows on crypto-native rails. Designing agent primitives for tool orchestration, API integrations, workflow state, payment logic, guardrails, observability, and evals. Daily driver across Claude Code, Codex, Cursor, Gemini, and custom workflow tooling.</p>
-        </div>
+          <dt>2022 — now</dt>
+          <dd><strong>Founder &amp; Developer</strong> · Pollinate Trading · Remote. Solo-built fintech platform for systematic traders to $250K+ ARR. Product, frontend, backend, data, infra, backtesting, deployment, customer workflows — all owned.</dd>
+
+          <dt>2014 — now</dt>
+          <dd><strong>Security Management Consultant</strong> · Enfocado Capital · Remote. EP strategy and program builds for Fortune 500 CEOs and families — zero security incidents. Custom software for security ops. Operated a crypto hedge fund across multiple cycles.</dd>
+
+          <dt>2013 — 14</dt>
+          <dd><strong>Founder</strong> · Geniusly · 500 Startups · San Francisco. Predictive risk analytics for transportation. Selected for 500 Startups; exited via acquisition of the technology and team.</dd>
+
+          <dt>2011 — 13</dt>
+          <dd><strong>VP, Security Operations</strong> · Logistics Latin America · Colombia / Mexico. Built the Enterprise Security Plan from inception. Operations, budgets, government relations, SOPs for high-risk-environment work across LATAM.</dd>
+
+          <dt>2004 — 11</dt>
+          <dd><strong>Regional Operations Manager → Deputy PM</strong> · Triple Canopy · Iraq / Haiti / Israel. Directed multinational operations across the Middle East: 5,000+ personnel, $100M in U.S. government equipment, 24/7 tactical operations centers. Close protection for U.S. Embassy personnel, DoD facilities, and the President of Haiti during election transition.</dd>
+
+          <dt>1995 — 99</dt>
+          <dd><strong>Infantry Corporal, Stack Leader</strong> · United States Marine Corps · 3rd Bn 1st Marines. Maritime Special Purpose Force, security element for MEU(SOC) Direct Action Platoon. Squad Leader, Security Forces, Guantanamo Bay.</dd>
+        </dl>
       </div>
+    </section>
 
-      <div class="role">
-        <div class="role-year">2022 — now</div>
-        <div class="role-body">
-          <h4>Founder & Developer</h4>
-          <div class="role-org">Pollinate Trading · Remote</div>
-          <p>Solo-built fintech platform for systematic traders to $250K+ ARR. Product, frontend, backend, data, infra, backtesting, deployment, and customer workflows — all owned. Python · React/Next.js · Node · Postgres · AWS/Vercel.</p>
-        </div>
+    <!-- ============ CREDENTIALS ============ -->
+    <section>
+      <h2>Credentials</h2>
+      <div class="aligned">
+        <span>500 Startups alum — prior exit</span>
+        <span>USMC infantry team leader</span>
+        <span>CPP — ASIS International</span>
+        <span>U.S. Dept. of State HTP / driving / firearms instructor</span>
+        <span>English (native) · Spanish (fluent)</span>
       </div>
+    </section>
 
-      <div class="role">
-        <div class="role-year">2014 — now</div>
-        <div class="role-body">
-          <h4>Founder &amp; Principal</h4>
-          <div class="role-org">Enfocado Capital · advisory / holding company</div>
-          <p>Personal advisory and investment vehicle spanning crypto, systematic trading, and high-stakes security operations. Operated a crypto hedge fund across multiple market cycles; built custom software for security ops, reporting, and operational efficiency.</p>
-        </div>
+    <!-- ============ CONTACT ============ -->
+    <section>
+      <h2>Contact</h2>
+      <p class="muted">
+        Building MAKO. Open to VP / Director / Chief AI roles at AI-native and established companies.
+        Inbound on advisory, partnership, or "this looks broken" all reach me directly.
+      </p>
+      <div class="facts">
+        <dl>
+          <dt>Email</dt>
+          <dd><a href="mailto:chris@pollinatetrading.com">chris@pollinatetrading.com</a></dd>
+
+          <dt>GitHub</dt>
+          <dd><a href="https://github.com/chrisdover" target="_blank" rel="noopener">github.com/chrisdover</a></dd>
+
+          <dt>X</dt>
+          <dd><a href="https://x.com/chrisdmacro" target="_blank" rel="noopener">x.com/chrisdmacro</a></dd>
+
+          <dt>LinkedIn</dt>
+          <dd><a href="https://linkedin.com/in/chrisdmacro" target="_blank" rel="noopener">linkedin.com/in/chrisdmacro</a></dd>
+
+          <dt>Web</dt>
+          <dd><a href="https://pollinateresearch.com" target="_blank" rel="noopener">pollinateresearch.com</a> · <a href="https://pollinatetrading.com" target="_blank" rel="noopener">pollinatetrading.com</a></dd>
+
+          <dt>Based</dt>
+          <dd>Scottsdale, AZ · remote</dd>
+        </dl>
       </div>
+    </section>
 
-      <div class="role">
-        <div class="role-year">2013 — 14</div>
-        <div class="role-body">
-          <h4>Founder</h4>
-          <div class="role-org">Geniusly · 500 Startups · San Francisco</div>
-          <p>Predictive risk analytics for transportation. Selected for 500 Startups; exited via acquisition of the technology and team.</p>
-        </div>
+    <footer>
+      <div class="row">
+        <span>© 2026 Chris Dover</span>
+        <span>Scottsdale, AZ</span>
+        <span><a href="https://github.com/chrisdover" target="_blank" rel="noopener">source</a></span>
       </div>
-
-      <div class="role">
-        <div class="role-year">2011 — 13</div>
-        <div class="role-body">
-          <h4>VP, Security Operations</h4>
-          <div class="role-org">Logistics Latin America · Colombia / Mexico</div>
-          <p>Built the Enterprise Security Plan from inception. Directed operations, budgets, government relations, and SOPs for high-risk-environment work across LATAM.</p>
-        </div>
+      <div class="small">
+        Operating leader · founder &amp; CEO · builder. Open to senior AI leadership roles.
       </div>
+    </footer>
 
-      <div class="role">
-        <div class="role-year">2004 — 11</div>
-        <div class="role-body">
-          <h4>Regional Operations Manager → Deputy PM</h4>
-          <div class="role-org">Triple Canopy · Iraq / Haiti / Israel</div>
-          <p>Directed multinational operations across the Middle East: 5,000+ personnel, $100M in U.S. government equipment, 24/7 tactical operations centers. Close protection for U.S. Embassy personnel, DoD facilities, and the President of Haiti during election transition.</p>
-        </div>
-      </div>
-
-      <div class="role">
-        <div class="role-year">1995 — 99</div>
-        <div class="role-body">
-          <h4>Infantry Corporal, Stack Leader</h4>
-          <div class="role-org">United States Marine Corps · 3rd Bn 1st Marines</div>
-          <p>Maritime Special Purpose Force, security element for MEU(SOC) Direct Action Platoon. Squad Leader, Security Forces, Guantanamo Bay.</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="creds">
-      <h3>Credentials</h3>
-      <div class="creds-list">
-        <span class="item">500 Startups alum — prior exit</span>
-        <span class="item">USMC infantry team leader</span>
-        <span class="item">CPP — ASIS International</span>
-        <span class="item">U.S. Dept. of State HTP / driving / firearms instructor</span>
-        <span class="item">English (native) · Spanish (fluent)</span>
-      </div>
-    </div>
-  </section>
-
-  <section id="contact" class="cofounder">
-    <div class="cofounder-inner">
-      <div>
-        <h2>Build with me<em> here.</em></h2>
-        <p class="lede">
-          Building MAKO. Open to <strong>founding engineer, Head of Agentic Systems, FDE, AI systems lead, and early technical hire</strong> roles where I can ship the first version, build the operating system, and help scale the team.
-        </p>
-      </div>
-
-      <div>
-        <div class="contact-block">
-          <div class="row"><span class="key">email</span><a href="mailto:chris@pollinatetrading.com">chris@pollinatetrading.com</a></div>
-          <div class="row"><span class="key">github</span><a href="https://github.com/chrisdover" target="_blank" rel="noopener">/chrisdover</a></div>
-          <div class="row"><span class="key">x</span><a href="https://x.com/chrisdmacro" target="_blank" rel="noopener">@chrisdmacro</a></div>
-          <div class="row"><span class="key">linkedin</span><a href="https://linkedin.com/in/chrisdmacro" target="_blank" rel="noopener">/in/chrisdmacro</a></div>
-          <div class="row"><span class="key">resume</span><a href="/resume/Chris_Dover_AI_Systems_Builder_Resume_2026.pdf">AI systems builder PDF</a></div>
-          <div class="row"><span class="key">based</span><span>Scottsdale, AZ — remote</span></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <footer class="site">
-    <span>© 2026 chris dover · scottsdale, az</span>
-    <span>built in a single sitting · <a href="https://github.com/ChrisDover/chrisdover.com" target="_blank" rel="noopener">source</a></span>
-  </footer>
-
-</div>
+  </main>
 
 </body>
 </html>
